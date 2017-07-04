@@ -10,8 +10,9 @@
 TIEMR_EXT union  FLAG 		Flag1_;
 #define Flag1 					Flag1_._flag_byte;
 #define f_1ms						Flag1_._flag_bit.bit0
-#define f_1s						Flag1_._flag_bit.bit3
-
+#define f_100ms					Flag1_._flag_bit.bit1
+#define f_1s						Flag1_._flag_bit.bit2
+TIEMR_EXT uint8_t systime_count2;
 TIEMR_EXT uint16_t systime_count;
 
 

@@ -27,6 +27,12 @@
 #include <string.h>
 #include <stdio.h>
 
+#define CH1_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+#define CH1_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+#define CH2_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
+#define CH2_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
+#define CH3_ON			GPIO_WriteHigh(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+#define CH3_OFF			GPIO_WriteLow(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -38,6 +44,10 @@ extern uint8_t GetDataIndex;
 extern uint8_t ReceiveState;
 extern uint8_t SendDataIndex;
 extern uint8_t IIC_TxBuffer[];
+
+extern uint8_t  ch1_status_change;
+extern uint8_t  ch2_status_change;
+
 u8 Tick10s;
 
 /* Private variables ---------------------------------------------------------*/ 
@@ -74,10 +84,7 @@ void main(void)
   while((CLK->SWCR & 0x01)==0x01);
   CLK->CKDIVR = 0x80;    //不分频
   CLK->SWCR  &= ~0x02; //关闭切换
-	/* Init GPIO for I2C use */
-	/*GPIOE->CR1 |= 0x06;
-	GPIOE->DDR &= ~0x06;
-	GPIOE->CR2 &= ~0x06;*/
+
 	//地址IO初始化
 	GPIO_Init(GPIOD, (GPIO_Pin_TypeDef)GPIO_PIN_2, GPIO_MODE_IN_PU_NO_IT);
 	GPIO_Init(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_5, GPIO_MODE_IN_PU_NO_IT);
@@ -96,7 +103,7 @@ void main(void)
 	ADC_init();
 	//串口初始化
 	UART_Init(115200);
-	
+	Init_Time4();
 	printf("Hello World!\n");
 	/* Initialise I2C for communication */
 	IIC_SlaveConfig();
@@ -117,12 +124,26 @@ void main(void)
 			ReceiveState = IIC_STATE_UNKNOWN;
 			GetDataIndex = 0;
 		}
+		if(f_100ms){
+			f_100ms = 0;
+			if(ch1_status_change){
+				if(spc.ch1_status == 0x63)	CH1_ON;
+				else												CH1_OFF;
+				ch1_status_change = 0;
+			}
+			if(ch2_status_change){
+				if(spc.ch2_status == 0x63)	CH2_ON;
+				else												CH2_OFF;
+				ch2_status_change = 0;
+			}
+		}
 		if(f_1s){
 			f_1s = 0;
 			Tick10s++;
 			if(Tick10s >= 10){
 				Tick10s = 0;
 				AcquireEG();
+				printf("Hello World!\n");
 			}
 		}
 	}

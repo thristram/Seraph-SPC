@@ -8,6 +8,8 @@
 #endif
 
 #define JiZhun_AD 	2.5
+ADC_EXT u8 count;
+ADC_EXT u16 u16_adc1_value[6];
 ADC_EXT float current[6];
 ADC_EXT float avr_current;
 ADC_EXT float rtEG;//实时采集到的功率值，每10s更新一次
@@ -15,4 +17,5 @@ ADC_EXT float rtEG;//实时采集到的功率值，每10s更新一次
 ADC_EXT void ADC_init(void);
 ADC_EXT void AcquireEG(void);
 ADC_EXT float calcEG_60s(u8 voltage,float current);
+ADC_EXT u16 avrADCValue(void);
 #endif

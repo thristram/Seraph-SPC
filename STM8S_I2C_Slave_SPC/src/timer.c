@@ -21,7 +21,7 @@
 void Init_Time4(void)
 {
 
-	TIM4->PSCR = 0x05;//分频值 8M/2^5 = 250K
+	TIM4->PSCR = 0x06;//分频值 8M/2^5 = 250K 
 	TIM4->IER = 0x01;//使能触发中断
 	TIM4->CNTR = 250;//250*(1/250K) = 0.001s
 	TIM4->ARR = 249;//自动重装的值
@@ -40,6 +40,14 @@ void Init_Time4(void)
   */
 void Sys_Time_Manage(void)
 {
+	systime_count2++;
+	if(systime_count2 >= 100)
+	{
+		systime_count2 = 0;
+		f_100ms = 1;
+	}
+	
+	
 	systime_count++;
 	if (systime_count >= 1000)
 	{

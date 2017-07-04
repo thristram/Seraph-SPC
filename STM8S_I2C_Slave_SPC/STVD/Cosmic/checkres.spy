@@ -1,0 +1,11 @@
+;
+; **        Welcome to ST Visual Debug SPY System               **
+; ** Copyright STMicroelectronics (c) 1999, all rights reserved **
+;  Level 1
+;  Date  06/27/17
+;  Time  21:44:23
+;
+<.\confmenu.cpp:170-21:44:23> 
+Error: resource handle has not been restored in .\mainfrm.cpp:3205
+<.\mainfrm.cpp:3491-23:01:12> Open file: D:\20170625\STM8_I2C_Master_Slave-master\firmware\STM8S_I2C_Master\STVD\Cosmic\I2C_master_poll.stw
+<.\mainfrm.cpp:3491-23:02:36> Open file: D:\20170625\SMT8S SC\STM8S_I2C_Master\STVD\Cosmic\I2C_master_poll.stw

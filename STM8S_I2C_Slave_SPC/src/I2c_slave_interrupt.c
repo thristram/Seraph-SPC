@@ -3,12 +3,6 @@
 #include <string.h>
 #include <stdio.h>
 #define MAX_BUFFER  32
-#define CH1_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
-#define CH1_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
-#define CH2_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
-#define CH2_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
-#define CH3_ON			GPIO_WriteHigh(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
-#define CH3_OFF			GPIO_WriteLow(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
 
 
 
@@ -24,7 +18,10 @@ uint8_t SendDataIndex = 0;
 
 uint8_t 	channel;
 uint8_t 	ext;
-
+uint8_t  last_ch1_status;
+uint8_t  last_ch2_status;
+uint8_t  ch1_status_change;
+uint8_t  ch2_status_change;
 /*****action dimmer用标志位********/
 union FLAG action_flag;
 // ********************** Data link function ****************************
@@ -103,18 +100,22 @@ u8 i2c_init_message(I2C_Message *tx,u8 payload_len)
 							channel = IIC_RxBuffer[5]&0x0f;
 							if((channel & 0x01)==0x01)	{
 								spc.ch1_status = IIC_RxBuffer[6];
-								if(spc.ch1_status == 0x63)	CH1_ON;
-								else												CH1_OFF;
+								if(spc.ch1_status != last_ch1_status)	ch1_status_change = 1;
+								last_ch1_status = spc.ch1_status;
+								/*if(spc.ch1_status == 0x63)	CH1_ON;
+								else												CH1_OFF;*/
 							}
 							if((channel & 0x02)==0x02)	{
 								spc.ch2_status = IIC_RxBuffer[6];
-								if(spc.ch2_status == 0x63)	CH2_ON;
-								else												CH2_OFF;
+								if(spc.ch2_status != last_ch2_status)	ch2_status_change = 1;
+								last_ch2_status = spc.ch2_status;
+								/*if(spc.ch2_status == 0x63)	CH2_ON;
+								else												CH2_OFF;*/
 							}
 							if((channel & 0x04)==0x04)	{
 								spc.ch3_status = IIC_RxBuffer[6];
-								if(spc.ch3_status == 0x63)	CH3_ON;
-								else												CH3_OFF;
+								/*if(spc.ch3_status == 0x63)	CH3_ON;
+								else												CH3_OFF;*/
 							}
 							rev_action_plug_done();
 						}
@@ -319,9 +320,9 @@ void I2C_Slave_check_event(void) interrupt 19 {
 void IIC_SlaveConfig (void)
 {
 	//配置PD1到PD4为从机地址配置引脚
-	GPIOD->DDR &= ~(0xF<<1);
-	GPIOD->CR1 |= (0xF<<1);//上拉
-	GPIOD->CR2 &= ~(0xF<<1);//External interrupt disabled
+	//GPIOD->DDR &= ~(0xF<<1);
+	//GPIOD->CR1 |= (0xF<<1);//上拉
+	//GPIOD->CR2 &= ~(0xF<<1);//External interrupt disabled
 	//配置PB4，5为I2C引脚
   GPIOB->ODR |= (1<<4)|(1<<5);                //define SDA, SCL outputs, HiZ, Open drain, Fast
   GPIOB->DDR |= (1<<4)|(1<<5);
@@ -330,8 +331,8 @@ void IIC_SlaveConfig (void)
 		/* Set I2C registers for 7Bits Address */
 		I2C->CR1 |= 0x01;				        	// Enable I2C peripheral
 		I2C->CR2 = 0x04;					      		// Enable I2C acknowledgement
-		//I2C->FREQR = 16; 					      	// Set I2C Freq value (16MHz)
-		I2C->FREQR = 8;
+		I2C->FREQR = 16; 					      	// Set I2C Freq value (16MHz)
+		//I2C->FREQR = 1;
 		I2C->OARL = (SLAVE_ADDRESS << 1) ;	// set slave address to 0x51 (put 0xA2 for the register dues to7bit address) 
 		I2C->OARH = 0x40;					      	// Set 7bit address mode
 
@@ -341,7 +342,7 @@ void IIC_SlaveConfig (void)
 	  I2C->CR1 |= 0x01;				  // Enable I2C peripheral
 	  I2C->CR2 = 0x04;					// Enable I2C acknowledgement
 	  I2C->FREQR = 16; 					// Set I2C Freq value (16MHz)
-		//I2C->FREQR = 8;
+		//I2C->FREQR = 1;
 	  I2C->OARL = (SLAVE_ADDRESS & 0xFF) ;							// set slave address LSB 
 	  I2C->OARH = 0xC0 | ((SLAVE_ADDRESS & 0x300) >> 7);	// Set 10bits address mode and address MSB
 	#endif
