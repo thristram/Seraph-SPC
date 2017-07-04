@@ -71,7 +71,7 @@
  258  003f 96            	ldw	x,sp
  259  0040 1c0003        	addw	x,#OFST-4
  260  0043 cd0000        	call	c_rtol
- 262                     ; 32 	current[count++] = AD_Data*0.01;	//1mV对应0.01A
+ 262                     ; 32 	current[count++] = AD_Data*0.01;	//1mV对应0.01A 
  264  0046 96            	ldw	x,sp
  265  0047 1c0003        	addw	x,#OFST-4
  266  004a cd0000        	call	c_ltor

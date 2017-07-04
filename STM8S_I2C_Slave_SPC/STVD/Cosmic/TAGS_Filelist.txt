@@ -49,5 +49,3 @@ stm8_interrupt_vector.c
 ..\..\inc\timer.h
 ..\..\inc\uart_printf.h
 ..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\mods0.h
-..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h
-..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h

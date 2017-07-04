@@ -722,97 +722,85 @@
 1675                     ; 321 {
 1677                     .text:	section	.text,new
 1678  0000               _IIC_SlaveConfig:
-1682                     ; 327   GPIOB->ODR |= (1<<4)|(1<<5);                //define SDA, SCL outputs, HiZ, Open drain, Fast
-1684  0000 c65005        	ld	a,20485
-1685  0003 aa30          	or	a,#48
-1686  0005 c75005        	ld	20485,a
-1687                     ; 328   GPIOB->DDR |= (1<<4)|(1<<5);
-1689  0008 c65007        	ld	a,20487
-1690  000b aa30          	or	a,#48
-1691  000d c75007        	ld	20487,a
-1692                     ; 329   GPIOB->CR2 |= (1<<4)|(1<<5);
-1694  0010 c65009        	ld	a,20489
-1695  0013 aa30          	or	a,#48
-1696  0015 c75009        	ld	20489,a
-1697                     ; 332 		I2C->CR1 |= 0x01;				        	// Enable I2C peripheral
-1699  0018 72105210      	bset	21008,#0
-1700                     ; 333 		I2C->CR2 = 0x04;					      		// Enable I2C acknowledgement
-1702  001c 35045211      	mov	21009,#4
-1703                     ; 334 		I2C->FREQR = 16; 					      	// Set I2C Freq value (16MHz)
-1705  0020 35105212      	mov	21010,#16
-1706                     ; 336 		I2C->OARL = (SLAVE_ADDRESS << 1) ;	// set slave address to 0x51 (put 0xA2 for the register dues to7bit address) 
-1708  0024 b64b          	ld	a,_slave_address
-1709  0026 48            	sll	a
-1710  0027 c75213        	ld	21011,a
-1711                     ; 337 		I2C->OARH = 0x40;					      	// Set 7bit address mode
-1713  002a 35405214      	mov	21012,#64
-1714                     ; 350 	I2C->ITR	= 0x07;					      // all I2C interrupt enable  
-1716  002e 3507521a      	mov	21018,#7
-1717                     ; 351 }
-1720  0032 81            	ret
-2082                     	xdef	_I2C_byte_write
-2083                     	xdef	_I2C_byte_received
-2084                     	xdef	_I2C_transaction_receive
-2085                     	xdef	_I2C_transaction_end
-2086                     	xdef	_rev_action_dimmer_done
-2087                     	xdef	_rev_action_dimmer_OK
-2088                     	xdef	_I2C_transaction_begin
-2089                     	xdef	_I2C_receive_begin
-2090                     	xdef	_i2c_init_message
-2091                     	xdef	_Check_Sum
-2092                     	xdef	_mymemcpy
-2093                     	switch	.ubsct
-2094  0003               _action_flag:
-2095  0003 00            	ds.b	1
-2096                     	xdef	_action_flag
-2097  0004               _ch2_status_change:
-2098  0004 00            	ds.b	1
-2099                     	xdef	_ch2_status_change
-2100  0005               _ch1_status_change:
-2101  0005 00            	ds.b	1
-2102                     	xdef	_ch1_status_change
-2103  0006               _last_ch2_status:
-2104  0006 00            	ds.b	1
-2105                     	xdef	_last_ch2_status
-2106  0007               _last_ch1_status:
-2107  0007 00            	ds.b	1
-2108                     	xdef	_last_ch1_status
-2109  0008               _ext:
-2110  0008 00            	ds.b	1
-2111                     	xdef	_ext
-2112  0009               _channel:
-2113  0009 00            	ds.b	1
-2114                     	xdef	_channel
-2115                     	xdef	_SendDataIndex
-2116                     	xdef	_ReceiveState
-2117                     	xdef	_GetDataIndex
-2118  000a               _IIC_TxBuffer:
-2119  000a 000000000000  	ds.b	32
-2120                     	xdef	_IIC_TxBuffer
-2121  002a               _IIC_RxBuffer:
-2122  002a 000000000000  	ds.b	32
-2123                     	xdef	_IIC_RxBuffer
-2124  004a               _action_done:
-2125  004a 00            	ds.b	1
-2126                     	xdef	_action_done
-2127  004b               _slave_address:
-2128  004b 00            	ds.b	1
-2129                     	xdef	_slave_address
-2130  004c               _spc:
-2131  004c 000000000000  	ds.b	27
-2132                     	xdef	_spc
-2133                     	xref.b	_rtEG
-2134                     	xdef	_rev_action_plug_done
-2135                     	xdef	_init_energy_consume
-2136                     	xdef	_rev_heart_breat
-2137                     	xdef	_init_device_info
-2138                     	xdef	f_I2C_Slave_check_event
-2139                     	xdef	_IIC_SlaveConfig
-2140                     	xref.b	c_lreg
-2141                     	xref.b	c_x
-2142                     	xref.b	c_y
-2162                     	xref	c_ftoi
-2163                     	xref	c_lrzmp
-2164                     	xref	c_lgsbc
-2165                     	xref	c_ltor
-2166                     	end
+1682                     ; 332 		I2C->CR1 |= 0x01;				        	// Enable I2C peripheral
+1684  0000 72105210      	bset	21008,#0
+1685                     ; 333 		I2C->CR2 = 0x04;					      		// Enable I2C acknowledgement
+1687  0004 35045211      	mov	21009,#4
+1688                     ; 334 		I2C->FREQR = 16; 					      	// Set I2C Freq value (16MHz)
+1690  0008 35105212      	mov	21010,#16
+1691                     ; 336 		I2C->OARL = (SLAVE_ADDRESS << 1) ;	// set slave address to 0x51 (put 0xA2 for the register dues to7bit address) 
+1693  000c b64b          	ld	a,_slave_address
+1694  000e 48            	sll	a
+1695  000f c75213        	ld	21011,a
+1696                     ; 337 		I2C->OARH = 0x40;					      	// Set 7bit address mode
+1698  0012 35405214      	mov	21012,#64
+1699                     ; 350 	I2C->ITR	= 0x07;					      // all I2C interrupt enable  
+1701  0016 3507521a      	mov	21018,#7
+1702                     ; 351 }
+1705  001a 81            	ret
+2067                     	xdef	_I2C_byte_write
+2068                     	xdef	_I2C_byte_received
+2069                     	xdef	_I2C_transaction_receive
+2070                     	xdef	_I2C_transaction_end
+2071                     	xdef	_rev_action_dimmer_done
+2072                     	xdef	_rev_action_dimmer_OK
+2073                     	xdef	_I2C_transaction_begin
+2074                     	xdef	_I2C_receive_begin
+2075                     	xdef	_i2c_init_message
+2076                     	xdef	_Check_Sum
+2077                     	xdef	_mymemcpy
+2078                     	switch	.ubsct
+2079  0003               _action_flag:
+2080  0003 00            	ds.b	1
+2081                     	xdef	_action_flag
+2082  0004               _ch2_status_change:
+2083  0004 00            	ds.b	1
+2084                     	xdef	_ch2_status_change
+2085  0005               _ch1_status_change:
+2086  0005 00            	ds.b	1
+2087                     	xdef	_ch1_status_change
+2088  0006               _last_ch2_status:
+2089  0006 00            	ds.b	1
+2090                     	xdef	_last_ch2_status
+2091  0007               _last_ch1_status:
+2092  0007 00            	ds.b	1
+2093                     	xdef	_last_ch1_status
+2094  0008               _ext:
+2095  0008 00            	ds.b	1
+2096                     	xdef	_ext
+2097  0009               _channel:
+2098  0009 00            	ds.b	1
+2099                     	xdef	_channel
+2100                     	xdef	_SendDataIndex
+2101                     	xdef	_ReceiveState
+2102                     	xdef	_GetDataIndex
+2103  000a               _IIC_TxBuffer:
+2104  000a 000000000000  	ds.b	32
+2105                     	xdef	_IIC_TxBuffer
+2106  002a               _IIC_RxBuffer:
+2107  002a 000000000000  	ds.b	32
+2108                     	xdef	_IIC_RxBuffer
+2109  004a               _action_done:
+2110  004a 00            	ds.b	1
+2111                     	xdef	_action_done
+2112  004b               _slave_address:
+2113  004b 00            	ds.b	1
+2114                     	xdef	_slave_address
+2115  004c               _spc:
+2116  004c 000000000000  	ds.b	27
+2117                     	xdef	_spc
+2118                     	xref.b	_rtEG
+2119                     	xdef	_rev_action_plug_done
+2120                     	xdef	_init_energy_consume
+2121                     	xdef	_rev_heart_breat
+2122                     	xdef	_init_device_info
+2123                     	xdef	f_I2C_Slave_check_event
+2124                     	xdef	_IIC_SlaveConfig
+2125                     	xref.b	c_lreg
+2126                     	xref.b	c_x
+2127                     	xref.b	c_y
+2147                     	xref	c_ftoi
+2148                     	xref	c_lrzmp
+2149                     	xref	c_lgsbc
+2150                     	xref	c_ltor
+2151                     	end

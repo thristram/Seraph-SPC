@@ -324,9 +324,9 @@ void IIC_SlaveConfig (void)
 	//GPIOD->CR1 |= (0xF<<1);//上拉
 	//GPIOD->CR2 &= ~(0xF<<1);//External interrupt disabled
 	//配置PB4，5为I2C引脚
-  GPIOB->ODR |= (1<<4)|(1<<5);                //define SDA, SCL outputs, HiZ, Open drain, Fast
-  GPIOB->DDR |= (1<<4)|(1<<5);
-  GPIOB->CR2 |= (1<<4)|(1<<5);
+  //GPIOB->ODR |= (1<<4)|(1<<5);                //define SDA, SCL outputs, HiZ, Open drain, Fast
+  //GPIOB->DDR |= (1<<4)|(1<<5);
+  //GPIOB->CR2 |= (1<<4)|(1<<5);
 	#ifdef I2C_slave_7Bits_Address
 		/* Set I2C registers for 7Bits Address */
 		I2C->CR1 |= 0x01;				        	// Enable I2C peripheral
@@ -349,4 +349,14 @@ void IIC_SlaveConfig (void)
 	
 	I2C->ITR	= 0x07;					      // all I2C interrupt enable  
 }
+
+/*
+void IIC_SlaveConfig (void)
+{
+	I2C_DeInit();
+	I2C_Init(100000,SLAVE_ADDRESS,I2C_DUTYCYCLE_2,I2C_ACK_CURR,I2C_ADDMODE_7BIT,CLK_GetClockFreq()/1000000);
+	I2C_ITConfig((I2C_IT_TypeDef)(I2C_IT_ERR | I2C_IT_EVT | I2C_IT_BUF),ENABLE);
+	I2C_Cmd(ENABLE);
+}
+*/
 

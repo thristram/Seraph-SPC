@@ -29,7 +29,7 @@ void AcquireEG(void)
 	}
 	adc_value = avrADCValue();
 	AD_Data = (float)(adc_value*3.2258 - 1919.3548);//595*3300/1023
-	current[count++] = AD_Data*0.01;	//1mV对应0.01A
+	current[count++] = AD_Data*0.01;	//1mV对应0.01A 
 	if(count >= 6){
 		count = 0;
 		avr_current = (current[0]+current[1]+current[2]+current[3]+current[4]+current[5])/6;

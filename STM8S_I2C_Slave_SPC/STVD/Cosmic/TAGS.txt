@@ -420,7 +420,6 @@ BTR1	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2310;"	member	struct:
 BTR1	..\..\inc\stm8s.h	2069;"	member	struct:__anon248::__anon249::__anon255
 BTR2	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2311;"	member	struct:__anon6::__anon7::__anon13
 BTR2	..\..\inc\stm8s.h	2070;"	member	struct:__anon248::__anon249::__anon255
-BUFSIZ	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	26;"	macro
 BYTE_0	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2817;"	macro
 BYTE_0	..\..\inc\stm8s.h	2534;"	macro
 BYTE_1	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2818;"	macro
@@ -1485,7 +1484,6 @@ EIER	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2307;"	member	struct:
 EIER	..\..\inc\stm8s.h	2066;"	member	struct:__anon248::__anon249::__anon255
 ENABLE	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	252;"	enumerator	enum:__anon4
 ENABLE	..\..\inc\stm8s_type.h	75;"	enumerator	enum:__anon259
-EOF	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	27;"	macro
 ERROR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	255;"	enumerator	enum:__anon5
 ERROR	..\..\inc\stm8s_type.h	82;"	enumerator	enum:__anon260
 ESR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2306;"	member	struct:__anon6::__anon7::__anon13
@@ -2749,8 +2747,6 @@ NOPT5	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1609;"	member	struct
 NOPT5	..\..\inc\stm8s.h	1459;"	member	struct:OPT_struct
 NOPT7	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1613;"	member	struct:OPT_struct
 NOPT7	..\..\inc\stm8s.h	1463;"	member	struct:OPT_struct
-NULL	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	28;"	macro
-NULL	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	8;"	macro
 NonHandledInterrupt	..\..\inc\stm8s_it.h	41;"	prototype	signature:(void)
 NonHandledInterrupt	stm8_interrupt_vector.c	14;"	function	signature:(void)
 OARH	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1347;"	member	struct:I2C_struct
@@ -5552,8 +5548,6 @@ __I2C_SLAVE_H	..\..\inc\i2c_slave_interrupt.h	2;"	macro
 __IO	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	207;"	macro
 __MODS0__	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\mods0.h	11;"	macro
 __O	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	206;"	macro
-__SIZE_T__	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	9;"	macro
-__STDIO__	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	6;"	macro
 __STM8S_ADC1_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_adc1.h	29;"	macro
 __STM8S_ADC2_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_adc2.h	31;"	macro
 __STM8S_AWU_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_awu.h	30;"	macro
@@ -5589,7 +5583,6 @@ __STM8S_UART2_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_uart2.h	30;"
 __STM8S_UART3_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_uart3.h	30;"	macro
 __STM8S_UART4_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_uart4.h	30;"	macro
 __STM8S_WWDG_H	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_wwdg.h	30;"	macro
-__STRING__	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	6;"	macro
 __TIMER_H	..\..\inc\timer.h	2;"	macro
 __UART_PRINTF_H	..\..\inc\uart_printf.h	14;"	macro
 _flag_bit	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	244;"	member	union:FLAG	typeref:struct:FLAG::__anon1
@@ -5654,8 +5647,6 @@ f_1s	..\..\inc\timer.h	14;"	macro
 firmware	..\..\inc\i2c_slave_interrupt.h	32;"	member	struct:__anon247
 frame_h1	..\..\inc\i2c_slave_interrupt.h	22;"	member	struct:__anon246
 frame_h2	..\..\inc\i2c_slave_interrupt.h	23;"	member	struct:__anon246
-getchar	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	15;"	prototype	signature:(void)
-gets	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	16;"	prototype	signature:(char *s)
 halt	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2740;"	macro
 halt	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2749;"	macro
 halt	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2759;"	macro
@@ -5678,11 +5669,6 @@ last_ch2_status	..\..\src\i2c_slave_interrupt.c	22;"	variable
 linear_begin	..\..\inc\i2c_slave_interrupt.h	10;"	macro
 linear_done	..\..\inc\i2c_slave_interrupt.h	11;"	macro
 main	..\..\src\main.c	77;"	function	signature:(void)
-memchr	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	26;"	prototype	signature:(void *s, char c, unsigned int n)
-memcmp	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	20;"	prototype	signature:(void *s1, void *s2, unsigned int n)
-memcpy	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	27;"	prototype	signature:(void *s1, void *s2, unsigned int n)
-memmove	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	28;"	prototype	signature:(void *s1, void *s2, unsigned int n)
-memset	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	29;"	prototype	signature:(void *s, char c, unsigned int n)
 meshid	..\..\inc\i2c_slave_interrupt.h	30;"	member	struct:__anon247
 message_id	..\..\inc\i2c_slave_interrupt.h	24;"	member	struct:__anon246
 model	..\..\inc\i2c_slave_interrupt.h	34;"	member	struct:__anon247
@@ -5693,9 +5679,6 @@ nop	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2756;"	macro
 nop	..\..\inc\stm8s.h	2494;"	macro
 nop	..\..\inc\stm8s.h	2503;"	macro
 payload	..\..\inc\i2c_slave_interrupt.h	25;"	member	struct:__anon246
-printf	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	17;"	prototype	signature:(char *format, ...)
-putchar	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	18;"	prototype	signature:(char c)
-puts	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	19;"	prototype	signature:(char *s)
 rev_action_dimmer_OK	..\..\src\i2c_slave_interrupt.c	181;"	function	signature:(void)
 rev_action_dimmer_done	..\..\src\i2c_slave_interrupt.c	194;"	function	signature:(void)
 rev_action_plug_done	..\..\inc\i2c_slave_interrupt.h	63;"	prototype	signature:(void)
@@ -5717,30 +5700,13 @@ s8	..\..\inc\stm8s_type.h	30;"	typedef
 sc16	..\..\inc\stm8s_type.h	33;"	typedef
 sc32	..\..\inc\stm8s_type.h	32;"	typedef
 sc8	..\..\inc\stm8s_type.h	34;"	typedef
-scanf	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	20;"	prototype	signature:(char *format, ...)
 sim	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2736;"	macro
 sim	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2745;"	macro
 sim	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2755;"	macro
 sim	..\..\inc\stm8s.h	2493;"	macro
 sim	..\..\inc\stm8s.h	2502;"	macro
-size_t	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	10;"	typedef
 slave_address	..\..\src\i2c_slave_interrupt.c	10;"	variable
 spc	..\..\src\i2c_slave_interrupt.c	9;"	variable
-sprintf	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	22;"	prototype	signature:(char *s, char *format, ...)
-sscanf	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	21;"	prototype	signature:(char *s, char *format, ...)
-strcat	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	12;"	prototype	signature:(char *s1, char *s2)
-strchr	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	13;"	prototype	signature:(char *s, char c)
-strcmp	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	21;"	prototype	signature:(char *s1, char *s2)
-strcpy	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	14;"	prototype	signature:(char *s1, char *s2)
-strcspn	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	23;"	prototype	signature:(char *s1, char *s2)
-strlen	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	24;"	prototype	signature:(char *s)
-strncat	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	15;"	prototype	signature:(char *s1, char *s2, unsigned int n)
-strncmp	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	22;"	prototype	signature:(char *s1, char *s2, unsigned int n)
-strncpy	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	16;"	prototype	signature:(char *s1, char *s2, unsigned int n)
-strpbrk	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	17;"	prototype	signature:(char *s1, char *s2)
-strrchr	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	18;"	prototype	signature:(char *s, char c)
-strspn	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	25;"	prototype	signature:(char *s1, char *s2)
-strstr	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	19;"	prototype	signature:(char *s1, char *s2)
 swing_begin	..\..\inc\i2c_slave_interrupt.h	16;"	macro
 swing_done	..\..\inc\i2c_slave_interrupt.h	17;"	macro
 systime_count	..\..\inc\timer.h	16;"	variable
