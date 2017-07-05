@@ -452,6 +452,11 @@ Next=Root.STM8S_StdPeriph_Driver.STM8S_StdPeriph_Driver\src...\..\..\libraries\s
 [Root.STM8S_StdPeriph_Driver.STM8S_StdPeriph_Driver\src...\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_i2c.c]
 ElemType=File
 PathName=..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_i2c.c
+Next=Root.STM8S_StdPeriph_Driver.STM8S_StdPeriph_Driver\src...\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_itc.c
+
+[Root.STM8S_StdPeriph_Driver.STM8S_StdPeriph_Driver\src...\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_itc.c]
+ElemType=File
+PathName=..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_itc.c
 Next=Root.STM8S_StdPeriph_Driver.STM8S_StdPeriph_Driver\src...\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_iwdg.c
 
 [Root.STM8S_StdPeriph_Driver.STM8S_StdPeriph_Driver\src...\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_iwdg.c]

@@ -7,6 +7,14 @@
 #define IIC_STATE_RECEIVEING	2
 #define	IIC_STATE_END					3
 
+#define CH1_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+#define CH1_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+#define CH2_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
+#define CH2_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
+#define CH3_ON			GPIO_WriteHigh(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+#define CH3_OFF			GPIO_WriteLow(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+
+
 #define linear_begin		action_flag._flag_bit.bit0//接收到Linear调光指令
 #define linear_done			action_flag._flag_bit.bit1//Linear调光指令执行完成标志
 #define eraseIn_begin		action_flag._flag_bit.bit2//接收到Linear调光指令

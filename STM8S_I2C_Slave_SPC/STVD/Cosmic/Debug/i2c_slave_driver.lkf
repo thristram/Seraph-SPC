@@ -55,6 +55,7 @@ Debug\stm8s_clk.o
 Debug\stm8s_exti.o
 Debug\stm8s_gpio.o
 Debug\stm8s_i2c.o
+Debug\stm8s_itc.o
 Debug\stm8s_iwdg.o
 Debug\stm8s_tim2.o
 Debug\stm8s_tim4.o

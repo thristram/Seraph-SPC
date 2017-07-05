@@ -100,14 +100,20 @@ u8 i2c_init_message(I2C_Message *tx,u8 payload_len)
 							channel = IIC_RxBuffer[5]&0x0f;
 							if((channel & 0x01)==0x01)	{
 								spc.ch1_status = IIC_RxBuffer[6];
-								if(spc.ch1_status != last_ch1_status)	ch1_status_change = 1;
+								if(spc.ch1_status != last_ch1_status)	{
+									if(spc.ch1_status == 0x63)	CH1_ON;
+									else												CH1_OFF;
+								}
 								last_ch1_status = spc.ch1_status;
 								/*if(spc.ch1_status == 0x63)	CH1_ON;
 								else												CH1_OFF;*/
 							}
 							if((channel & 0x02)==0x02)	{
 								spc.ch2_status = IIC_RxBuffer[6];
-								if(spc.ch2_status != last_ch2_status)	ch2_status_change = 1;
+								if(spc.ch2_status != last_ch2_status)	{
+									if(spc.ch2_status == 0x63)	CH2_ON;
+									else												CH2_OFF;
+								}
 								last_ch2_status = spc.ch2_status;
 								/*if(spc.ch2_status == 0x63)	CH2_ON;
 								else												CH2_OFF;*/

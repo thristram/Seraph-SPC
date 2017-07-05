@@ -55,6 +55,7 @@ Release\stm8s_clk.o
 Release\stm8s_exti.o
 Release\stm8s_gpio.o
 Release\stm8s_i2c.o
+Release\stm8s_itc.o
 Release\stm8s_iwdg.o
 Release\stm8s_tim2.o
 Release\stm8s_tim4.o

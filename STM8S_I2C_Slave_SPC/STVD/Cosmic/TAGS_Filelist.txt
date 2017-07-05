@@ -29,6 +29,7 @@
 ..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_exti.c
 ..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_gpio.c
 ..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_i2c.c
+..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_itc.c
 ..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_iwdg.c
 ..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_tim2.c
 ..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_tim4.c
@@ -49,3 +50,5 @@ stm8_interrupt_vector.c
 ..\..\inc\timer.h
 ..\..\inc\uart_printf.h
 ..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\mods0.h
+..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h
+..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h

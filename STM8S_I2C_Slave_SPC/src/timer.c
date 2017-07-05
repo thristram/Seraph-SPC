@@ -40,13 +40,13 @@ void Init_Time4(void)
   */
 void Sys_Time_Manage(void)
 {
-	systime_count2++;
+	/*systime_count2++;
 	if(systime_count2 >= 100)
 	{
 		systime_count2 = 0;
 		f_100ms = 1;
 	}
-	
+	*/
 	
 	systime_count++;
 	if (systime_count >= 1000)

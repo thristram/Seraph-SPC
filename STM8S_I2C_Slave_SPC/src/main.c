@@ -27,12 +27,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#define CH1_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
-#define CH1_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_3)
-#define CH2_ON			GPIO_WriteHigh(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
-#define CH2_OFF			GPIO_WriteLow(GPIOC, (GPIO_Pin_TypeDef)GPIO_PIN_4)
-#define CH3_ON			GPIO_WriteHigh(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
-#define CH3_OFF			GPIO_WriteLow(GPIOA, (GPIO_Pin_TypeDef)GPIO_PIN_3)
+
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -102,13 +97,16 @@ void main(void)
 	spc.MDID = slave_address;
 	ADC_init();
 	//串口初始化
-	UART_Init(115200);
+	//UART_Init(115200);
 	Init_Time4();
-	printf("Hello World!\n");
+	//printf("Hello World!\n");
 	/* Initialise I2C for communication */
 	IIC_SlaveConfig();
-	
-	
+	//中断优先级设置
+	disableInterrupts();
+	ITC_DeInit();
+	ITC_SetSoftwarePriority(ITC_IRQ_TIM4_OVF,ITC_PRIORITYLEVEL_2);
+	ITC_SetSoftwarePriority(ITC_IRQ_I2C,ITC_PRIORITYLEVEL_3);
 	enableInterrupts();
 	 
 
@@ -117,14 +115,14 @@ void main(void)
 	{		
 		if(ReceiveState == IIC_STATE_END)
 		{
-			for(i=0;i<GetDataIndex;i++){
-				printf("%02X ",IIC_RxBuffer[i]&0xFF);
-			}
-			printf("\n");
+			//for(i=0;i<GetDataIndex;i++){
+			//	printf("%02X ",IIC_RxBuffer[i]&0xFF);
+			//}
+			//printf("\n");
 			ReceiveState = IIC_STATE_UNKNOWN;
 			GetDataIndex = 0;
 		}
-		if(f_100ms){
+		/*if(f_100ms){
 			f_100ms = 0;
 			if(ch1_status_change){
 				if(spc.ch1_status == 0x63)	CH1_ON;
@@ -136,14 +134,14 @@ void main(void)
 				else												CH2_OFF;
 				ch2_status_change = 0;
 			}
-		}
+		}*/
 		if(f_1s){
 			f_1s = 0;
 			Tick10s++;
 			if(Tick10s >= 10){
 				Tick10s = 0;
 				AcquireEG();
-				printf("Hello World!\n");
+				//printf("Hello World!\n");
 			}
 		}
 	}
