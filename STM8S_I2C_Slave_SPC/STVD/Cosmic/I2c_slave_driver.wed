@@ -1,5 +1,5 @@
 [WorkState_v1-Edit.Breakpoints]
-Break0=TypeFile, ..\..\src\i2c_slave_interrupt.c, 104, 0, 0, 1,
+Break0=TypeFile, ..\..\src\i2c_slave_interrupt.c, 103, 0, 0, 1,
 
 [WorkState_v1_2]
 ptn_Child1=DockState
@@ -61,7 +61,7 @@ ptn_Child48=Bar-47
 
 [WorkState_v1_2.DockState.Bar-0]
 BarID=59419
-Bars=49
+Bars=52
 Bar#0=0
 Bar#1=59647
 Bar#2=0
@@ -111,6 +111,9 @@ Bar#45=0
 Bar#46=0
 Bar#47=0
 Bar#48=0
+Bar#49=0
+Bar#50=0
+Bar#51=0
 Style=0
 ExStyle=0
 PrevFloating=False
@@ -302,7 +305,7 @@ ResourceID=0
 
 [WorkState_v1_2.DockState.Bar-6]
 BarID=59421
-Bars=254
+Bars=274
 Bar#0=0
 Bar#1=0
 Bar#2=5701
@@ -557,6 +560,26 @@ Bar#250=0
 Bar#251=0
 Bar#252=0
 Bar#253=0
+Bar#254=0
+Bar#255=0
+Bar#256=0
+Bar#257=0
+Bar#258=0
+Bar#259=0
+Bar#260=0
+Bar#261=0
+Bar#262=0
+Bar#263=0
+Bar#264=0
+Bar#265=0
+Bar#266=0
+Bar#267=0
+Bar#268=0
+Bar#269=0
+Bar#270=0
+Bar#271=0
+Bar#272=0
+Bar#273=0
 Style=0
 ExStyle=0
 PrevFloating=False
@@ -636,8 +659,8 @@ LastAlignedDocking=0
 PctWidth=1000000
 MRUFloatCX=216
 MRUFloatCY=77
-MRUHorzDockCX=1280
-MRUHorzDockCY=31
+MRUHorzDockCX=0
+MRUHorzDockCY=146
 MRUVertDockCX=126
 MRUVertDockCY=420
 MRUDockingState=0
@@ -654,13 +677,13 @@ Buttons=BAAAAAAIAACAAAAAAIAADAAAAAAIAAEAAAAAAIAAFAAAAAAIAAGAAAAAAIAAHAAAAAAIAAIA
 
 [WorkState_v1_2.DockState.Bar-9]
 BarID=59392
-YPos=30
+YPos=145
 Docking=True
 MRUDockID=0
-MRUDockLeftPos=8
-MRUDockTopPos=30
-MRUDockRightPos=156
-MRUDockBottomPos=60
+MRUDockLeftPos=-1
+MRUDockTopPos=145
+MRUDockRightPos=39
+MRUDockBottomPos=279
 MRUFloatStyle=8196
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -671,11 +694,11 @@ MDIChild=False
 AutoHide=False
 AutoHidePinned=False
 LastAlignedDocking=0
-PctWidth=500000
+PctWidth=1000000
 MRUFloatCX=0
 MRUFloatCY=0
-MRUHorzDockCX=148
-MRUHorzDockCY=30
+MRUHorzDockCX=40
+MRUHorzDockCY=134
 MRUVertDockCX=0
 MRUVertDockCY=0
 MRUDockingState=0
@@ -692,15 +715,15 @@ Buttons=AABOAAAAAAGPDBAAAAAAAIIBAAAAAAAAAAAAAAAADABOAAAAAAAAAAAAAAAAHABOAAAAAA
 
 [WorkState_v1_2.DockState.Bar-10]
 BarID=59396
-XPos=147
-YPos=30
+XPos=39
+YPos=145
 MRUWidth=566
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=147
-MRUDockTopPos=30
-MRUDockRightPos=730
-MRUDockBottomPos=60
+MRUDockLeftPos=39
+MRUDockTopPos=145
+MRUDockRightPos=206
+MRUDockBottomPos=287
 MRUFloatStyle=8196
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -711,11 +734,11 @@ MDIChild=False
 AutoHide=False
 AutoHidePinned=False
 LastAlignedDocking=0
-PctWidth=500000
+PctWidth=1000000
 MRUFloatCX=583
 MRUFloatCY=30
-MRUHorzDockCX=583
-MRUHorzDockCY=30
+MRUHorzDockCX=167
+MRUHorzDockCY=142
 MRUVertDockCX=158
 MRUVertDockCY=151
 MRUDockingState=0
@@ -771,15 +794,15 @@ Buttons=IFGBAAAAAAJFGBAAAAAAAAAAAAAAAAFEGBAAAAAAIEGBAAAAAAMBJIAAAAAAMEGBAAAAAAAA
 
 [WorkState_v1_2.DockState.Bar-12]
 BarID=59398
-XPos=445
-YPos=60
+XPos=79
+YPos=287
 MRUWidth=339
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=445
-MRUDockTopPos=60
-MRUDockRightPos=801
-MRUDockBottomPos=90
+MRUDockLeftPos=79
+MRUDockTopPos=287
+MRUDockRightPos=196
+MRUDockBottomPos=399
 MRUFloatStyle=8196
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -790,11 +813,11 @@ MDIChild=False
 AutoHide=False
 AutoHidePinned=False
 LastAlignedDocking=0
-PctWidth=166666
+PctWidth=1000000
 MRUFloatCX=356
 MRUFloatCY=30
-MRUHorzDockCX=356
-MRUHorzDockCY=30
+MRUHorzDockCX=117
+MRUHorzDockCY=112
 MRUVertDockCX=108
 MRUVertDockCY=121
 MRUDockingState=0
@@ -811,15 +834,14 @@ Buttons=KAAIAAAACAEGAAMAAIAAAACAEGAAAAAAAAAAAABBAIAAAAAACBAIAAAAAADBAIAAAAAAAAAA
 
 [WorkState_v1_2.DockState.Bar-13]
 BarID=59399
-XPos=3
-YPos=60
+YPos=287
 MRUWidth=385
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=8
-MRUDockTopPos=60
-MRUDockRightPos=410
-MRUDockBottomPos=90
+MRUDockLeftPos=-1
+MRUDockTopPos=287
+MRUDockRightPos=39
+MRUDockBottomPos=665
 MRUFloatStyle=8196
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -830,11 +852,11 @@ MDIChild=False
 AutoHide=False
 AutoHidePinned=False
 LastAlignedDocking=0
-PctWidth=83333
+PctWidth=1000000
 MRUFloatCX=402
 MRUFloatCY=30
-MRUHorzDockCX=402
-MRUHorzDockCY=30
+MRUHorzDockCX=40
+MRUHorzDockCY=378
 MRUVertDockCX=31
 MRUVertDockCY=387
 MRUDockingState=0
@@ -851,15 +873,15 @@ Buttons=HKAIAAAAAAIKAIAAAAAAAAAAAAAAAAADKBAAAAAAAAAAAAAAAAGPKBAAAAAAEPKBAAAAAAFP
 
 [WorkState_v1_2.DockState.Bar-14]
 BarID=59400
-XPos=405
-YPos=60
+XPos=39
+YPos=287
 MRUWidth=23
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=405
-MRUDockTopPos=60
-MRUDockRightPos=445
-MRUDockBottomPos=90
+MRUDockLeftPos=39
+MRUDockTopPos=287
+MRUDockRightPos=79
+MRUDockBottomPos=317
 MRUFloatStyle=8196
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -870,7 +892,7 @@ MDIChild=False
 AutoHide=False
 AutoHidePinned=False
 LastAlignedDocking=0
-PctWidth=250000
+PctWidth=1000000
 MRUFloatCX=40
 MRUFloatCY=30
 MRUHorzDockCX=40
@@ -891,15 +913,15 @@ Buttons=JPAIAAAAAA
 
 [WorkState_v1_2.DockState.Bar-15]
 BarID=59401
-XPos=801
-YPos=60
+XPos=196
+YPos=287
 MRUWidth=54
 Docking=True
 MRUDockID=59419
-MRUDockLeftPos=801
-MRUDockTopPos=60
-MRUDockRightPos=872
-MRUDockBottomPos=90
+MRUDockLeftPos=196
+MRUDockTopPos=287
+MRUDockRightPos=236
+MRUDockBottomPos=347
 MRUFloatStyle=8196
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -910,11 +932,11 @@ MDIChild=False
 AutoHide=False
 AutoHidePinned=False
 LastAlignedDocking=0
-PctWidth=500000
+PctWidth=1000000
 MRUFloatCX=71
 MRUFloatCY=30
-MRUHorzDockCX=71
-MRUHorzDockCY=30
+MRUHorzDockCX=40
+MRUHorzDockCY=60
 MRUVertDockCX=31
 MRUVertDockCY=69
 MRUDockingState=0
@@ -1016,7 +1038,7 @@ MRUDockID=0
 MRUDockLeftPos=1
 MRUDockTopPos=-2
 MRUDockRightPos=245
-MRUDockBottomPos=659
+MRUDockBottomPos=1
 MRUFloatStyle=4
 MRUFloatXPos=-1
 MRUFloatYPos=0
@@ -1033,7 +1055,7 @@ MRUFloatCY=180
 MRUHorzDockCX=300
 MRUHorzDockCY=180
 MRUVertDockCX=244
-MRUVertDockCY=661
+MRUVertDockCY=3
 MRUDockingState=0
 DockingStyle=61440
 TypeID=0
@@ -1049,7 +1071,7 @@ Docking=True
 MRUDockID=0
 MRUDockLeftPos=1
 MRUDockTopPos=5
-MRUDockRightPos=1280
+MRUDockRightPos=1
 MRUDockBottomPos=200
 MRUFloatStyle=4
 MRUFloatXPos=-1
@@ -1064,7 +1086,7 @@ LastAlignedDocking=0
 PctWidth=1000000
 MRUFloatCX=300
 MRUFloatCY=180
-MRUHorzDockCX=1279
+MRUHorzDockCX=0
 MRUHorzDockCY=195
 MRUVertDockCX=300
 MRUVertDockCY=180
@@ -2062,8 +2084,8 @@ ptn_Child1=MainFrame
 ptn_Child2=ChildFrames
 
 [WorkState_v1_2.Frames.MainFrame]
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNEAAAAAAIGCAAAAAPLEAAAAALODAAAAA
-Title=ST Visual Develop - I2c_slave_driver.stw - [main.c]
+WindowPlacement=MCAAAAAACAAAAAAACAAAAAAAAADIPPPPAADIPPPPPPPPPPPPPPPPPPPPNEAAAAAAIGCAAAAAPLEAAAAALODAAAAA
+Title=ST Visual Develop - I2c_slave_driver.stw - [i2c_slave_interrupt.c]
 
 [WorkState_v1_2.Frames.ChildFrames]
 ptn_Child1=Document-0
@@ -2094,69 +2116,14 @@ ptn_Child1=ViewFrame-0
 DocPathName=..\..\src\main.c
 DocumentString=
 DocTemplateIndex=0
-WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAANDCAAAAAHNAAAAAA
-IsActiveChildFrame=True
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAAAAAAAAAANDCAAAAAHNAAAAAA
+IsActiveChildFrame=False
 IsFrameVisible=True
 
 [WorkState_v1_2.Frames.ChildFrames.Document-1]
 ptn_Child1=ViewFrame-0
 
 [WorkState_v1_2.Frames.ChildFrames.Document-1.ViewFrame-0]
-DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_gpio.c
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAEDDAAAAAFLBAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-2]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-2.ViewFrame-0]
-DocPathName=..\..\src\i2c_slave_interrupt.c
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAJFDAAAAADOBAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-3]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-3.ViewFrame-0]
-DocPathName=..\..\inc\i2c_slave_interrupt.h
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAALBDAAAAAFBCAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-4]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-4.ViewFrame-0]
-DocPathName=..\..\src\stm8s_it.c
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAGGDAAAAAOCCAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-5]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-5.ViewFrame-0]
-DocPathName=..\..\inc\stm8s_conf.h
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAANHAAAAAAPHDAAAAAHECAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-6]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-6.ViewFrame-0]
 DocPathName=..\..\inc\stm8s_it.h
 DocumentString=
 DocTemplateIndex=0
@@ -2164,10 +2131,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPGJAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-7]
+[WorkState_v1_2.Frames.ChildFrames.Document-2]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-7.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-2.ViewFrame-0]
 DocPathName=..\..\src\uart_printf.c
 DocumentString=
 DocTemplateIndex=0
@@ -2175,21 +2142,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPANAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-8]
+[WorkState_v1_2.Frames.ChildFrames.Document-3]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-8.ViewFrame-0]
-DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_clk.h
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAMPCAAAAADOBAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-9]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-9.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-3.ViewFrame-0]
 DocPathName=stm8_interrupt_vector.c
 DocumentString=
 DocTemplateIndex=0
@@ -2197,10 +2153,21 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPPKAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-10]
+[WorkState_v1_2.Frames.ChildFrames.Document-4]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-10.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-4.ViewFrame-0]
+DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_clk.h
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAMPCAAAAADOBAAAAA
+IsActiveChildFrame=False
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-5]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-5.ViewFrame-0]
 DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_itc.c
 DocumentString=
 DocTemplateIndex=0
@@ -2208,10 +2175,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-11]
+[WorkState_v1_2.Frames.ChildFrames.Document-6]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-11.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-6.ViewFrame-0]
 DocPathName=..\..\inc\adc.h
 DocumentString=
 DocTemplateIndex=0
@@ -2219,10 +2186,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-12]
+[WorkState_v1_2.Frames.ChildFrames.Document-7]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-12.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-7.ViewFrame-0]
 DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_itc.h
 DocumentString=
 DocTemplateIndex=0
@@ -2230,10 +2197,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-13]
+[WorkState_v1_2.Frames.ChildFrames.Document-8]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-13.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-8.ViewFrame-0]
 DocPathName=..\..\src\adc.c
 DocumentString=
 DocTemplateIndex=0
@@ -2241,10 +2208,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPGJAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-14]
+[WorkState_v1_2.Frames.ChildFrames.Document-9]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-14.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-9.ViewFrame-0]
 DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_adc1.h
 DocumentString=
 DocTemplateIndex=0
@@ -2252,10 +2219,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPPKAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-15]
+[WorkState_v1_2.Frames.ChildFrames.Document-10]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-15.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-10.ViewFrame-0]
 DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s_gpio.h
 DocumentString=
 DocTemplateIndex=0
@@ -2263,21 +2230,10 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPAAAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-16]
+[WorkState_v1_2.Frames.ChildFrames.Document-11]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-16.ViewFrame-0]
-DocPathName=..\..\inc\timer.h
-DocumentString=
-DocTemplateIndex=0
-WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPCDAAAAAACDAAAAAANEDAAAAAOMBAAAAA
-IsActiveChildFrame=False
-IsFrameVisible=True
-
-[WorkState_v1_2.Frames.ChildFrames.Document-17]
-ptn_Child1=ViewFrame-0
-
-[WorkState_v1_2.Frames.ChildFrames.Document-17.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-11.ViewFrame-0]
 DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h
 DocumentString=
 DocTemplateIndex=0
@@ -2285,10 +2241,21 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-18]
+[WorkState_v1_2.Frames.ChildFrames.Document-12]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-18.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-12.ViewFrame-0]
+DocPathName=..\..\inc\timer.h
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPCDAAAAAACDAAAAAANEDAAAAAOMBAAAAA
+IsActiveChildFrame=False
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-13]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-13.ViewFrame-0]
 DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_adc1.c
 DocumentString=
 DocTemplateIndex=0
@@ -2296,13 +2263,68 @@ WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True
 
-[WorkState_v1_2.Frames.ChildFrames.Document-19]
+[WorkState_v1_2.Frames.ChildFrames.Document-14]
 ptn_Child1=ViewFrame-0
 
-[WorkState_v1_2.Frames.ChildFrames.Document-19.ViewFrame-0]
+[WorkState_v1_2.Frames.ChildFrames.Document-14.ViewFrame-0]
+DocPathName=..\..\..\libraries\stm8s_stdperiph_driver\src\stm8s_gpio.c
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAEDDAAAAAFLBAAAAA
+IsActiveChildFrame=False
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-15]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-15.ViewFrame-0]
 DocPathName=..\..\src\timer.c
 DocumentString=
 DocTemplateIndex=0
 WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAPHDAAAAAAACAAAAA
+IsActiveChildFrame=False
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-16]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-16.ViewFrame-0]
+DocPathName=..\..\src\i2c_slave_interrupt.c
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAACAAAAAAADAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPJBAAAAAAJBAAAAAAJFDAAAAADOBAAAAA
+IsActiveChildFrame=True
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-17]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-17.ViewFrame-0]
+DocPathName=..\..\inc\i2c_slave_interrupt.h
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPLEAAAAAALEAAAAAALBDAAAAAFBCAAAAA
+IsActiveChildFrame=False
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-18]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-18.ViewFrame-0]
+DocPathName=..\..\src\stm8s_it.c
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPEGAAAAAAEGAAAAAAGGDAAAAAOCCAAAAA
+IsActiveChildFrame=False
+IsFrameVisible=True
+
+[WorkState_v1_2.Frames.ChildFrames.Document-19]
+ptn_Child1=ViewFrame-0
+
+[WorkState_v1_2.Frames.ChildFrames.Document-19.ViewFrame-0]
+DocPathName=..\..\inc\stm8s_conf.h
+DocumentString=
+DocTemplateIndex=0
+WindowPlacement=MCAAAAAAAAAAAAAABAAAAAAAPPPPPPPPPPPPPPPPIPPPPPPPCOPPPPPPNHAAAAAANHAAAAAAPHDAAAAAHECAAAAA
 IsActiveChildFrame=False
 IsFrameVisible=True

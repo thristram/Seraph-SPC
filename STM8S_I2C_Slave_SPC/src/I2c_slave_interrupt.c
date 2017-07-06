@@ -20,8 +20,7 @@ uint8_t 	channel;
 uint8_t 	ext;
 uint8_t  last_ch1_status;
 uint8_t  last_ch2_status;
-uint8_t  ch1_status_change;
-uint8_t  ch2_status_change;
+uint8_t  last_ch3_status;
 /*****action dimmer用标志位********/
 union FLAG action_flag;
 // ********************** Data link function ****************************
@@ -120,6 +119,11 @@ u8 i2c_init_message(I2C_Message *tx,u8 payload_len)
 							}
 							if((channel & 0x04)==0x04)	{
 								spc.ch3_status = IIC_RxBuffer[6];
+								if(spc.ch3_status != last_ch3_status)	{
+									if(spc.ch3_status == 0x63)	CH3_ON;
+									else												CH3_OFF;
+								}
+								last_ch3_status = spc.ch3_status;
 								/*if(spc.ch3_status == 0x63)	CH3_ON;
 								else												CH3_OFF;*/
 							}
@@ -141,10 +145,10 @@ u8 i2c_init_message(I2C_Message *tx,u8 payload_len)
 		di.frame_h2 = 0x7E;
 		di.message_id = IIC_RxBuffer[2];
 		di.payload[0] = 0xB3;
-		di.payload[1] = 0x01;
-		di.payload[2] = 0x01;
-		di.payload[3] = 0x01;
-		di.payload[4] = 0x01;
+		di.payload[1] = 0xAA;
+		di.payload[2] = 0x55;
+		di.payload[3] = 0xAB;
+		di.payload[4] = 0x58;
 		di.payload[5] = 0x63;
 		di.payload[6] = 0x00;
 		di.payload[7] = 0xc0;
@@ -184,34 +188,7 @@ u8 i2c_init_message(I2C_Message *tx,u8 payload_len)
 		i2c_init_message(&hb,6);
 	}
 	
-	void rev_action_dimmer_OK(void)
-	{
-		I2C_Message ad;
-		ad.frame_h1 = 0x7E;
-		ad.frame_h2 = 0x7E;
-		ad.message_id = IIC_RxBuffer[2];
-		ad.payload[0] = 0xAA;
-		ad.payload[1] = 0x02;
-		ad.payload[2] = spc.MDID;
-		i2c_init_message(&ad,3);
-	}
 	
-	
-	void rev_action_dimmer_done(void)
-	{
-		I2C_Message ad;
-		ad.frame_h1 = 0x7E;
-		ad.frame_h2 = 0x7E;
-		ad.message_id = 66;
-		ad.payload[0] = 0xAA;
-		ad.payload[1] = 0x05;
-		ad.payload[2] = spc.MDID;
-		ad.payload[3] = spc.ch1_status;
-		ad.payload[4] = spc.ch2_status;
-		ad.payload[5] = spc.ch3_status;
-		ad.payload[6] = spc.ch4_status;
-		i2c_init_message(&ad,7);
-	}
 	
 	void rev_action_plug_done(void)
 	{

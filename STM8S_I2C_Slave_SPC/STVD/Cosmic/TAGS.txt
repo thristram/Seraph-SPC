@@ -1382,7 +1382,7 @@ CSR	..\..\inc\stm8s.h	284;"	member	struct:AWU_struct
 CSR	..\..\inc\stm8s.h	326;"	member	struct:BEEP_struct
 CSSR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	531;"	member	struct:CLK_struct
 CSSR	..\..\inc\stm8s.h	367;"	member	struct:CLK_struct
-Check_Sum	..\..\src\i2c_slave_interrupt.c	47;"	function	signature:(u8 *buf,u8 length)
+Check_Sum	..\..\src\i2c_slave_interrupt.c	46;"	function	signature:(u8 *buf,u8 length)
 ChgBit	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2809;"	macro
 ChgBit	..\..\inc\stm8s.h	2526;"	macro
 ClrBit	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2807;"	macro
@@ -2169,15 +2169,15 @@ I2C_TRISER_TRISE	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1437;"	ma
 I2C_TRISER_TRISE	..\..\inc\stm8s.h	1287;"	macro
 I2C_TypeDef	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1359;"	typedef	typeref:struct:I2C_struct
 I2C_TypeDef	..\..\inc\stm8s.h	1209;"	typedef	typeref:struct:I2C_struct
-I2C_byte_received	..\..\src\i2c_slave_interrupt.c	242;"	function	signature:(uint8_t RxData)
-I2C_byte_write	..\..\src\i2c_slave_interrupt.c	250;"	function	signature:(void)
-I2C_receive_begin	..\..\src\i2c_slave_interrupt.c	70;"	function	signature:(void)
+I2C_byte_received	..\..\src\i2c_slave_interrupt.c	241;"	function	signature:(uint8_t RxData)
+I2C_byte_write	..\..\src\i2c_slave_interrupt.c	249;"	function	signature:(void)
+I2C_receive_begin	..\..\src\i2c_slave_interrupt.c	69;"	function	signature:(void)
 I2C_slave_7Bits_Address	..\..\inc\i2c_slave_interrupt.h	74;"	macro
 I2C_struct	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1341;"	struct
 I2C_struct	..\..\inc\stm8s.h	1191;"	struct
-I2C_transaction_begin	..\..\src\i2c_slave_interrupt.c	75;"	function	signature:(void)
-I2C_transaction_end	..\..\src\i2c_slave_interrupt.c	232;"	function	signature:(void)
-I2C_transaction_receive	..\..\src\i2c_slave_interrupt.c	237;"	function	signature:(void)
+I2C_transaction_begin	..\..\src\i2c_slave_interrupt.c	74;"	function	signature:(void)
+I2C_transaction_end	..\..\src\i2c_slave_interrupt.c	231;"	function	signature:(void)
+I2C_transaction_receive	..\..\src\i2c_slave_interrupt.c	236;"	function	signature:(void)
 IAPSR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1534;"	member	struct:FLASH_struct
 IAPSR	..\..\inc\stm8s.h	1384;"	member	struct:FLASH_struct
 ICKR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	523;"	member	struct:CLK_struct
@@ -2206,7 +2206,7 @@ IIC_STATE_END	..\..\inc\i2c_slave_interrupt.h	8;"	macro
 IIC_STATE_RECEIVEING	..\..\inc\i2c_slave_interrupt.h	7;"	macro
 IIC_STATE_UNKNOWN	..\..\inc\i2c_slave_interrupt.h	5;"	macro
 IIC_SlaveConfig	..\..\inc\i2c_slave_interrupt.h	60;"	prototype	signature:(void)
-IIC_SlaveConfig	..\..\src\i2c_slave_interrupt.c	326;"	function	signature:(void)
+IIC_SlaveConfig	..\..\src\i2c_slave_interrupt.c	325;"	function	signature:(void)
 IIC_TxBuffer	..\..\src\i2c_slave_interrupt.c	13;"	variable
 INTERRUPT	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2787;"	macro
 INTERRUPT	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2789;"	macro
@@ -4716,7 +4716,7 @@ TSR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2191;"	member	struct:_
 TSR	..\..\inc\stm8s.h	1944;"	member	struct:__anon248
 TXCRCR	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	1718;"	member	struct:SPI_struct
 TXCRCR	..\..\inc\stm8s.h	1568;"	member	struct:SPI_struct
-Tick10s	..\..\src\main.c	46;"	variable
+Tick10s	..\..\src\main.c	45;"	variable
 TxMailbox	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2218;"	member	union:__anon6::__anon7	typeref:struct:__anon6::__anon7::__anon8
 TxMailbox	..\..\inc\stm8s.h	1972;"	member	union:__anon248::__anon249	typeref:struct:__anon248::__anon249::__anon250
 U16_MAX	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	260;"	macro
@@ -5603,9 +5603,9 @@ _stext	..\..\inc\stm8s_it.h	40;"	prototype	signature:(void)
 _stext	stm8_interrupt_vector.c	21;"	prototype	file:
 _vectab	stm8_interrupt_vector.c	23;"	variable
 action_done	..\..\src\i2c_slave_interrupt.c	11;"	variable
-action_flag	..\..\src\i2c_slave_interrupt.c	26;"	variable	typeref:union:FLAG
+action_flag	..\..\src\i2c_slave_interrupt.c	25;"	variable	typeref:union:FLAG
 assert_failed	..\..\inc\stm8s_conf.h	105;"	prototype	signature:(uint8_t* file, uint32_t line)
-assert_failed	..\..\src\main.c	159;"	function	signature:(uint8_t* file, uint32_t line)
+assert_failed	..\..\src\main.c	158;"	function	signature:(uint8_t* file, uint32_t line)
 assert_param	..\..\inc\stm8s_conf.h	103;"	macro
 assert_param	..\..\inc\stm8s_conf.h	107;"	macro
 avrADCValue	..\..\inc\adc.h	20;"	prototype	signature:(void)
@@ -5626,16 +5626,14 @@ byte_write	..\..\inc\i2c_slave_interrupt.h	59;"	prototype	signature:(void)
 calcEG_60s	..\..\inc\adc.h	19;"	prototype	signature:(u8 voltage,float current)
 calcEG_60s	..\..\src\adc.c	65;"	function	signature:(u8 voltage,float current)
 ch1_status	..\..\inc\i2c_slave_interrupt.h	45;"	member	struct:__anon247
-ch1_status_change	..\..\src\i2c_slave_interrupt.c	23;"	variable
 ch2_status	..\..\inc\i2c_slave_interrupt.h	46;"	member	struct:__anon247
-ch2_status_change	..\..\src\i2c_slave_interrupt.c	24;"	variable
 ch3_status	..\..\inc\i2c_slave_interrupt.h	47;"	member	struct:__anon247
 ch4_status	..\..\inc\i2c_slave_interrupt.h	48;"	member	struct:__anon247
 channel	..\..\src\i2c_slave_interrupt.c	19;"	variable
 coord	..\..\inc\i2c_slave_interrupt.h	43;"	member	struct:__anon247
 count	..\..\inc\adc.h	11;"	variable
 current	..\..\inc\adc.h	13;"	variable
-delay	..\..\src\main.c	56;"	function	signature:(u16 Count)
+delay	..\..\src\main.c	55;"	function	signature:(u16 Count)
 deviceid	..\..\inc\i2c_slave_interrupt.h	39;"	member	struct:__anon247
 disableInterrupts	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2734;"	macro
 disableInterrupts	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2743;"	macro
@@ -5666,11 +5664,11 @@ halt	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2749;"	macro
 halt	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2759;"	macro
 halt	..\..\inc\stm8s.h	2497;"	macro
 halt	..\..\inc\stm8s.h	2506;"	macro
-i2c_init_message	..\..\src\i2c_slave_interrupt.c	59;"	function	signature:(I2C_Message *tx,u8 payload_len)
+i2c_init_message	..\..\src\i2c_slave_interrupt.c	58;"	function	signature:(I2C_Message *tx,u8 payload_len)
 init_device_info	..\..\inc\i2c_slave_interrupt.h	68;"	prototype	signature:(void)
-init_device_info	..\..\src\i2c_slave_interrupt.c	137;"	function	signature:(void)
+init_device_info	..\..\src\i2c_slave_interrupt.c	136;"	function	signature:(void)
 init_energy_consume	..\..\inc\i2c_slave_interrupt.h	70;"	prototype	signature:(void)
-init_energy_consume	..\..\src\i2c_slave_interrupt.c	155;"	function	signature:(void)
+init_energy_consume	..\..\src\i2c_slave_interrupt.c	154;"	function	signature:(void)
 int16_t	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	211;"	typedef
 int32_t	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	212;"	typedef
 int8_t	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	210;"	typedef
@@ -5682,7 +5680,7 @@ last_ch1_status	..\..\src\i2c_slave_interrupt.c	21;"	variable
 last_ch2_status	..\..\src\i2c_slave_interrupt.c	22;"	variable
 linear_begin	..\..\inc\i2c_slave_interrupt.h	18;"	macro
 linear_done	..\..\inc\i2c_slave_interrupt.h	19;"	macro
-main	..\..\src\main.c	72;"	function	signature:(void)
+main	..\..\src\main.c	71;"	function	signature:(void)
 memchr	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	26;"	prototype	signature:(void *s, char c, unsigned int n)
 memcmp	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	20;"	prototype	signature:(void *s1, void *s2, unsigned int n)
 memcpy	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	27;"	prototype	signature:(void *s1, void *s2, unsigned int n)
@@ -5691,7 +5689,7 @@ memset	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h	29;"	p
 meshid	..\..\inc\i2c_slave_interrupt.h	38;"	member	struct:__anon247
 message_id	..\..\inc\i2c_slave_interrupt.h	32;"	member	struct:__anon246
 model	..\..\inc\i2c_slave_interrupt.h	42;"	member	struct:__anon247
-mymemcpy	..\..\src\i2c_slave_interrupt.c	36;"	function	signature:(void *des,void *src,u32 n)
+mymemcpy	..\..\src\i2c_slave_interrupt.c	35;"	function	signature:(void *des,void *src,u32 n)
 nop	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2737;"	macro
 nop	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2746;"	macro
 nop	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2756;"	macro
@@ -5701,12 +5699,12 @@ payload	..\..\inc\i2c_slave_interrupt.h	33;"	member	struct:__anon246
 printf	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	17;"	prototype	signature:(char *format, ...)
 putchar	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	18;"	prototype	signature:(char c)
 puts	..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h	19;"	prototype	signature:(char *s)
-rev_action_dimmer_OK	..\..\src\i2c_slave_interrupt.c	187;"	function	signature:(void)
-rev_action_dimmer_done	..\..\src\i2c_slave_interrupt.c	200;"	function	signature:(void)
+rev_action_dimmer_OK	..\..\src\i2c_slave_interrupt.c	186;"	function	signature:(void)
+rev_action_dimmer_done	..\..\src\i2c_slave_interrupt.c	199;"	function	signature:(void)
 rev_action_plug_done	..\..\inc\i2c_slave_interrupt.h	71;"	prototype	signature:(void)
-rev_action_plug_done	..\..\src\i2c_slave_interrupt.c	216;"	function	signature:(void)
+rev_action_plug_done	..\..\src\i2c_slave_interrupt.c	215;"	function	signature:(void)
 rev_heart_breat	..\..\inc\i2c_slave_interrupt.h	69;"	prototype	signature:(void)
-rev_heart_breat	..\..\src\i2c_slave_interrupt.c	172;"	function	signature:(void)
+rev_heart_breat	..\..\src\i2c_slave_interrupt.c	171;"	function	signature:(void)
 rim	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2735;"	macro
 rim	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2744;"	macro
 rim	..\..\..\libraries\stm8s_stdperiph_driver\inc\stm8s.h	2754;"	macro

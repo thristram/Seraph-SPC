@@ -40,8 +40,7 @@ extern uint8_t ReceiveState;
 extern uint8_t SendDataIndex;
 extern uint8_t IIC_TxBuffer[];
 
-extern uint8_t  ch1_status_change;
-extern uint8_t  ch2_status_change;
+
 
 u8 Tick10s;
 
