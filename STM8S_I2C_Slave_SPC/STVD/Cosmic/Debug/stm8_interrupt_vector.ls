@@ -54,8 +54,8 @@
  106  0039 00            	dc.b	page(f_NonHandledInterrupt)
  107  003a 0000          	dc.w	f_NonHandledInterrupt
  108  003c 82            	dc.b	130
- 110  003d 00            	dc.b	page(f_NonHandledInterrupt)
- 111  003e 0000          	dc.w	f_NonHandledInterrupt
+ 110  003d 00            	dc.b	page(f_Timer2_ISR)
+ 111  003e 0000          	dc.w	f_Timer2_ISR
  112  0040 82            	dc.b	130
  114  0041 00            	dc.b	page(f_NonHandledInterrupt)
  115  0042 0000          	dc.w	f_NonHandledInterrupt
@@ -107,6 +107,7 @@
  226                     	xdef	__vectab
  227                     	xref	__stext
  228                     	xdef	f_NonHandledInterrupt
- 229                     	xref	f_TIM4InterruptHandle
- 230                     	xref	f_I2C_Slave_check_event
- 249                     	end
+ 229                     	xref	f_Timer2_ISR
+ 230                     	xref	f_TIM4InterruptHandle
+ 231                     	xref	f_I2C_Slave_check_event
+ 250                     	end

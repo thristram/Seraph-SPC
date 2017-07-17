@@ -163,25 +163,25 @@
  338                     ; 122 			GetDataIndex = 0;
  340  00d0 3f00          	clr	_GetDataIndex
  341  00d2               L511:
- 342                     ; 137 		if(f_1s){
+ 342                     ; 125 		if(f_1s){
  344  00d2 b600          	ld	a,_Flag1_
  345  00d4 a504          	bcp	a,#4
  346  00d6 27f0          	jreq	L111
- 347                     ; 138 			f_1s = 0;
+ 347                     ; 126 			f_1s = 0;
  349  00d8 72150000      	bres	_Flag1_,#2
- 350                     ; 139 			Tick10s++;
+ 350                     ; 127 			Tick10s++;
  352  00dc 3c00          	inc	_Tick10s
- 353                     ; 140 			if(Tick10s >= 10){
+ 353                     ; 128 			if(Tick10s >= 10){
  355  00de b600          	ld	a,_Tick10s
  356  00e0 a10a          	cp	a,#10
  357  00e2 25e4          	jrult	L111
- 358                     ; 141 				Tick10s = 0;
+ 358                     ; 129 				Tick10s = 0;
  360  00e4 3f00          	clr	_Tick10s
- 361                     ; 142 				AcquireEG();
+ 361                     ; 130 				AcquireEG();
  363  00e6 cd0000        	call	_AcquireEG
  365  00e9 20dd          	jra	L111
- 400                     ; 158 void assert_failed(uint8_t* file, uint32_t line)
- 400                     ; 159 { 
+ 400                     ; 146 void assert_failed(uint8_t* file, uint32_t line)
+ 400                     ; 147 { 
  401                     .text:	section	.text,new
  402  0000               _assert_failed:
  406  0000               L141:

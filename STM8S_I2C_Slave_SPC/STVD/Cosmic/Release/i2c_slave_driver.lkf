@@ -65,7 +65,6 @@ Release\i2c_slave_interrupt.o
 Release\main.o
 Release\stm8s_it.o
 Release\timer.o
-Release\uart_printf.o
 #<END OBJECT_FILES>
 
 

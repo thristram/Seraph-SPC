@@ -121,19 +121,7 @@ void main(void)
 			ReceiveState = IIC_STATE_UNKNOWN;
 			GetDataIndex = 0;
 		}
-		/*if(f_100ms){
-			f_100ms = 0;
-			if(ch1_status_change){
-				if(spc.ch1_status == 0x63)	CH1_ON;
-				else												CH1_OFF;
-				ch1_status_change = 0;
-			}
-			if(ch2_status_change){
-				if(spc.ch2_status == 0x63)	CH2_ON;
-				else												CH2_OFF;
-				ch2_status_change = 0;
-			}
-		}*/
+	
 		if(f_1s){
 			f_1s = 0;
 			Tick10s++;

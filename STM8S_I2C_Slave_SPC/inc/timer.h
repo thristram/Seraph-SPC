@@ -15,13 +15,20 @@ TIEMR_EXT union  FLAG 		Flag1_;
 TIEMR_EXT uint8_t systime_count2;
 TIEMR_EXT uint16_t systime_count;
 
-
+TIEMR_EXT void TIMER2_Init(void);
 TIEMR_EXT void Init_Time4(void);
 TIEMR_EXT void Sys_Time_Manage(void);
 #ifdef _COSMIC_
 @far @interrupt void TIM4InterruptHandle (void);
 #else
 void TIM4InterruptHandle (void) interrupt 23;
+#endif
+
+#ifdef _RAISONANCE_
+void Timer2_ISR(void) interrupt 13;
+#endif
+#ifdef _COSMIC_
+@far @interrupt void Timer2_ISR(void);
 #endif
 
 #endif

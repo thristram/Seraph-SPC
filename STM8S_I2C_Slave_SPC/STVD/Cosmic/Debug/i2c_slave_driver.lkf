@@ -65,7 +65,6 @@ Debug\i2c_slave_interrupt.o
 Debug\main.o
 Debug\stm8s_it.o
 Debug\timer.o
-Debug\uart_printf.o
 #<END OBJECT_FILES>
 
 
