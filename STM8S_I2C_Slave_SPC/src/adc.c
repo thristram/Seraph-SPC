@@ -66,14 +66,23 @@ u16 avrADCValue(void)
 //每10s采集1次，共采集6次，1min计算电流平均值，再返回功率值
 void AcquireEG(void)
 {
-
+	u8 i,j=0;
 	u16 adc_value = 0;
 	float AD_Data;
-	AD_Data = (float)(get_adc_value()*3.2258);//get_adc_value()*3300/1023 单位为mV
+	AD_Data = (float)((get_adc_value()-588)*3.2258);//get_adc_value()*3300/1023 单位为mV
 	current[count++] = AD_Data*0.0122;	//1mV对应0.01A，因采样到的电压是已经分压的了，要乘以12.2/10，单位为A
 	if(count >= 6){
 		count = 0;
-		avr_current = (current[0]+current[1]+current[2]+current[3]+current[4]+current[5])/6;
+		for(i = 0; i < 6; i++){
+			if((current[i] > 0.1)&&(current[i] < 20)) {//做保护,当电流超过0.1A且小于量程20A才认为有负载
+				avr_current += current[i];
+				j++;
+			}
+		}
+		if(j == 0)
+			avr_current = 0;
+		else
+			avr_current = avr_current / j;
 		rtEG += calcEG_60s(220,avr_current);//电压默认220V
 		//nop();
 	}
@@ -105,7 +114,7 @@ u16 get_adc_value(void)
 		sample_num++;
 	}
 	sample_num = 0;
-	return (adc_result[0] + adc_result[1] + adc_result[2]) / 3;
+	return ((adc_result[0] + adc_result[1] + adc_result[2]) / 3);
 }
 /***********************************************
 1.adc_value[20]冒泡排序，找到叠加交流的幅值

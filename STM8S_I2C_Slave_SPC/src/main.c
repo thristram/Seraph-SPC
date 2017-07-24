@@ -97,7 +97,7 @@ void main(void)
 	ADC_init();
 	//´®¿Ú³õÊ¼»¯
 	//UART_Init(115200);
-	Init_Time4();
+	Init_Time4();TIMER2_Init();
 	//printf("Hello World!\n");
 	/* Initialise I2C for communication */
 	IIC_SlaveConfig();
