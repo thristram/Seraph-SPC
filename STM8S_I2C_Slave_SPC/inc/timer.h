@@ -7,17 +7,32 @@
 #define TIEMR_EXT
 #endif
 
-TIEMR_EXT union  FLAG 		Flag1_;
-#define Flag1 					Flag1_._flag_byte;
-#define f_1ms						Flag1_._flag_bit.bit0
-#define f_100ms					Flag1_._flag_bit.bit1
-#define f_1s						Flag1_._flag_bit.bit2
-TIEMR_EXT uint8_t systime_count2;
-TIEMR_EXT uint16_t systime_count;
 
-TIEMR_EXT void TIMER2_Init(void);
-TIEMR_EXT void Init_Time4(void);
-TIEMR_EXT void Sys_Time_Manage(void);
+
+TIEMR_EXT union  FLAG 				Flag1_;
+
+#define Flag1 						Flag1_._flag_byte
+
+#define f_30ms					Flag1_._flag_bit.bit0
+#define f_1s						Flag1_._flag_bit.bit1
+#define f_10s						Flag1_._flag_bit.bit2
+#define f_100ms					Flag1_._flag_bit.bit3
+
+
+TIEMR_EXT u8 	c_30ms;		/* 30 ms 计数3 */
+TIEMR_EXT u8 	c_100ms;		/* 30 ms 计数10 */
+TIEMR_EXT u8 	c_1s;			/* 1s	计数100 */
+
+
+
+
+void timer2_init(void);
+
+void timer4_init(void);
+
+
+
+
 #ifdef _COSMIC_
 @far @interrupt void TIM4InterruptHandle (void);
 #else
@@ -30,5 +45,10 @@ void Timer2_ISR(void) interrupt 13;
 #ifdef _COSMIC_
 @far @interrupt void Timer2_ISR(void);
 #endif
+
+
+
+
+
 
 #endif

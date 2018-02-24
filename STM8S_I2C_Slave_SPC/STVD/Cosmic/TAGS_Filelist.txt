@@ -39,6 +39,7 @@
 ..\..\src\main.c
 ..\..\src\stm8s_it.c
 ..\..\src\timer.c
+..\..\src\uart.c
 stm8_interrupt_vector.c
 ..\..\inc\adc.h
 ..\..\inc\i2c_slave_interrupt.h
@@ -47,7 +48,9 @@ stm8_interrupt_vector.c
 ..\..\inc\stm8s_it.h
 ..\..\inc\stm8s_type.h
 ..\..\inc\timer.h
-..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\mods0.h
-..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\stdio.h
-..\..\..\..\..\..\program files (x86)\cosmic\cxstm8\hstm8\string.h
+..\..\inc\uart.h
 ..\..\inc\uart_printf.h
+c:\program files (x86)\cosmic\cxstm8\hstm8\mods0.h
+c:\program files (x86)\cosmic\cxstm8\hstm8\stdio.h
+c:\program files (x86)\cosmic\cxstm8\hstm8\stdlib.h
+c:\program files (x86)\cosmic\cxstm8\hstm8\string.h

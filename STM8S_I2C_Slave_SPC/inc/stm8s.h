@@ -44,7 +44,7 @@
 #if !defined (STM8S208) && !defined (STM8S207) && !defined (STM8S105) && !defined (STM8S103) && !defined (STM8S903)
  /* #define STM8S208 */
  /* #define STM8S207 */
-  #define STM8S105   
+  #define STM8S003   
  /* #define STM8S103 */
  /* #define STM8S903 */
 #endif

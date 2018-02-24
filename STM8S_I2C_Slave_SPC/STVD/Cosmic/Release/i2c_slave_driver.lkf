@@ -52,19 +52,16 @@ crtsi0.sm8
 #<BEGIN OBJECT_FILES>
 Release\stm8s_adc1.o
 Release\stm8s_clk.o
-Release\stm8s_exti.o
+Release\stm8s_flash.o
 Release\stm8s_gpio.o
-Release\stm8s_i2c.o
 Release\stm8s_itc.o
-Release\stm8s_iwdg.o
 Release\stm8s_tim2.o
 Release\stm8s_tim4.o
 Release\stm8s_uart1.o
 Release\adc.o
-Release\i2c_slave_interrupt.o
 Release\main.o
-Release\stm8s_it.o
 Release\timer.o
+Release\uart.o
 #<END OBJECT_FILES>
 
 

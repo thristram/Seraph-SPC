@@ -1,0 +1,6 @@
+---- energy_consume Matches (5 in 3 files) ----
+Main.c (d:\fyl\wp\stm8s\stm8s_i2c_slave_spc\src):	 spc.energy_consume = 0;
+Main.h (d:\fyl\wp\stm8s\stm8s_i2c_slave_spc\inc):	u16       			energy_consume;	/* 消耗的电量 */
+Uart.c (d:\fyl\wp\stm8s\stm8s_i2c_slave_spc\src):	uart1_frame.txbuf[6] = (u8)((spc.energy_consume >> 8) & 0xff);
+Uart.c (d:\fyl\wp\stm8s\stm8s_i2c_slave_spc\src):	uart1_frame.txbuf[7] = (u8)(spc.energy_consume & 0xff);
+Uart.c (d:\fyl\wp\stm8s\stm8s_i2c_slave_spc\src):				spc.energy_consume = adc_sample.total_energy;

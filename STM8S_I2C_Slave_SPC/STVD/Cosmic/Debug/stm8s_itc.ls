@@ -40,467 +40,395 @@
  141  0000 cd0000        	call	_ITC_GetCPUCC
  143  0003 a428          	and	a,#40
  146  0005 81            	ret
- 396                     .const:	section	.text
- 397  0000               L62:
- 398  0000 0041          	dc.w	L14
- 399  0002 0041          	dc.w	L14
- 400  0004 0041          	dc.w	L14
- 401  0006 0041          	dc.w	L14
- 402  0008 004a          	dc.w	L34
- 403  000a 004a          	dc.w	L34
- 404  000c 004a          	dc.w	L34
- 405  000e 004a          	dc.w	L34
- 406  0010 007e          	dc.w	L502
- 407  0012 007e          	dc.w	L502
- 408  0014 0053          	dc.w	L54
- 409  0016 0053          	dc.w	L54
- 410  0018 005c          	dc.w	L74
- 411  001a 005c          	dc.w	L74
- 412  001c 005c          	dc.w	L74
- 413  001e 005c          	dc.w	L74
- 414  0020 0065          	dc.w	L15
- 415  0022 0065          	dc.w	L15
- 416  0024 0065          	dc.w	L15
- 417  0026 0065          	dc.w	L15
- 418  0028 007e          	dc.w	L502
- 419  002a 007e          	dc.w	L502
- 420  002c 006e          	dc.w	L35
- 421  002e 006e          	dc.w	L35
- 422  0030 0077          	dc.w	L55
- 423                     ; 107 ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
- 423                     ; 108 {
- 424                     .text:	section	.text,new
- 425  0000               _ITC_GetSoftwarePriority:
- 427  0000 88            	push	a
- 428  0001 89            	pushw	x
- 429       00000002      OFST:	set	2
- 432                     ; 109   uint8_t Value = 0;
- 434  0002 0f02          	clr	(OFST+0,sp)
- 435                     ; 110   uint8_t Mask = 0;
- 437  0004 7b01          	ld	a,(OFST-1,sp)
- 438  0006 97            	ld	xl,a
- 439                     ; 113   assert_param(IS_ITC_IRQ_OK((uint8_t)IrqNum));
- 441  0007 7b03          	ld	a,(OFST+1,sp)
- 442  0009 a119          	cp	a,#25
- 443  000b 2403          	jruge	L41
- 444  000d 4f            	clr	a
- 445  000e 2010          	jra	L61
- 446  0010               L41:
- 447  0010 ae0071        	ldw	x,#113
- 448  0013 89            	pushw	x
- 449  0014 ae0000        	ldw	x,#0
- 450  0017 89            	pushw	x
- 451  0018 ae0064        	ldw	x,#L102
- 452  001b cd0000        	call	_assert_failed
- 454  001e 5b04          	addw	sp,#4
- 455  0020               L61:
- 456                     ; 116   Mask = (uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U));
- 458  0020 7b03          	ld	a,(OFST+1,sp)
- 459  0022 a403          	and	a,#3
- 460  0024 48            	sll	a
- 461  0025 5f            	clrw	x
- 462  0026 97            	ld	xl,a
- 463  0027 a603          	ld	a,#3
- 464  0029 5d            	tnzw	x
- 465  002a 2704          	jreq	L02
- 466  002c               L22:
- 467  002c 48            	sll	a
- 468  002d 5a            	decw	x
- 469  002e 26fc          	jrne	L22
- 470  0030               L02:
- 471  0030 6b01          	ld	(OFST-1,sp),a
- 472                     ; 118   switch (IrqNum)
- 474  0032 7b03          	ld	a,(OFST+1,sp)
- 476                     ; 198   default:
- 476                     ; 199     break;
- 477  0034 a119          	cp	a,#25
- 478  0036 2407          	jruge	L42
- 479  0038 5f            	clrw	x
- 480  0039 97            	ld	xl,a
- 481  003a 58            	sllw	x
- 482  003b de0000        	ldw	x,(L62,x)
- 483  003e fc            	jp	(x)
- 484  003f               L42:
- 485  003f 203d          	jra	L502
- 486  0041               L14:
- 487                     ; 120   case ITC_IRQ_TLI: /* TLI software priority can be read but has no meaning */
- 487                     ; 121   case ITC_IRQ_AWU:
- 487                     ; 122   case ITC_IRQ_CLK:
- 487                     ; 123   case ITC_IRQ_PORTA:
- 487                     ; 124     Value = (uint8_t)(ITC->ISPR1 & Mask); /* Read software priority */
- 489  0041 c67f70        	ld	a,32624
- 490  0044 1401          	and	a,(OFST-1,sp)
- 491  0046 6b02          	ld	(OFST+0,sp),a
- 492                     ; 125     break;
- 494  0048 2034          	jra	L502
- 495  004a               L34:
- 496                     ; 127   case ITC_IRQ_PORTB:
- 496                     ; 128   case ITC_IRQ_PORTC:
- 496                     ; 129   case ITC_IRQ_PORTD:
- 496                     ; 130   case ITC_IRQ_PORTE:
- 496                     ; 131     Value = (uint8_t)(ITC->ISPR2 & Mask); /* Read software priority */
- 498  004a c67f71        	ld	a,32625
- 499  004d 1401          	and	a,(OFST-1,sp)
- 500  004f 6b02          	ld	(OFST+0,sp),a
- 501                     ; 132     break;
- 503  0051 202b          	jra	L502
- 504  0053               L54:
- 505                     ; 141   case ITC_IRQ_SPI:
- 505                     ; 142   case ITC_IRQ_TIM1_OVF:
- 505                     ; 143     Value = (uint8_t)(ITC->ISPR3 & Mask); /* Read software priority */
- 507  0053 c67f72        	ld	a,32626
- 508  0056 1401          	and	a,(OFST-1,sp)
- 509  0058 6b02          	ld	(OFST+0,sp),a
- 510                     ; 144     break;
- 512  005a 2022          	jra	L502
- 513  005c               L74:
- 514                     ; 146   case ITC_IRQ_TIM1_CAPCOM:
- 514                     ; 147 #if defined (STM8S903) || defined (STM8AF622x)
- 514                     ; 148   case ITC_IRQ_TIM5_OVFTRI:
- 514                     ; 149   case ITC_IRQ_TIM5_CAPCOM:
- 514                     ; 150 #else
- 514                     ; 151   case ITC_IRQ_TIM2_OVF:
- 514                     ; 152   case ITC_IRQ_TIM2_CAPCOM:
- 514                     ; 153 #endif /* STM8S903 or STM8AF622x*/
- 514                     ; 154   case ITC_IRQ_TIM3_OVF:
- 514                     ; 155     Value = (uint8_t)(ITC->ISPR4 & Mask); /* Read software priority */
- 516  005c c67f73        	ld	a,32627
- 517  005f 1401          	and	a,(OFST-1,sp)
- 518  0061 6b02          	ld	(OFST+0,sp),a
- 519                     ; 156     break;
- 521  0063 2019          	jra	L502
- 522  0065               L15:
- 523                     ; 158   case ITC_IRQ_TIM3_CAPCOM:
- 523                     ; 159 #if defined(STM8S208) ||defined(STM8S207) || defined (STM8S007) || defined(STM8S103) || \
- 523                     ; 160     defined(STM8S003) ||defined(STM8S903) || defined (STM8AF52Ax) || defined (STM8AF62Ax)
- 523                     ; 161   case ITC_IRQ_UART1_TX:
- 523                     ; 162   case ITC_IRQ_UART1_RX:
- 523                     ; 163 #endif /*STM8S208 or STM8S207 or STM8S007 or STM8S103 or STM8S003 or STM8S903 or STM8AF52Ax or STM8AF62Ax */ 
- 523                     ; 164 #if defined(STM8AF622x)
- 523                     ; 165   case ITC_IRQ_UART4_TX:
- 523                     ; 166   case ITC_IRQ_UART4_RX:
- 523                     ; 167 #endif /*STM8AF622x */
- 523                     ; 168   case ITC_IRQ_I2C:
- 523                     ; 169     Value = (uint8_t)(ITC->ISPR5 & Mask); /* Read software priority */
- 525  0065 c67f74        	ld	a,32628
- 526  0068 1401          	and	a,(OFST-1,sp)
- 527  006a 6b02          	ld	(OFST+0,sp),a
- 528                     ; 170     break;
- 530  006c 2010          	jra	L502
- 531  006e               L35:
- 532                     ; 184   case ITC_IRQ_ADC1:
- 532                     ; 185 #endif /*STM8S105, STM8S005, STM8S103 or STM8S003 or STM8S903 or STM8AF626x or STM8AF622x */
- 532                     ; 186 #if defined (STM8S903) || defined (STM8AF622x)
- 532                     ; 187   case ITC_IRQ_TIM6_OVFTRI:
- 532                     ; 188 #else
- 532                     ; 189   case ITC_IRQ_TIM4_OVF:
- 532                     ; 190 #endif /*STM8S903 or STM8AF622x */
- 532                     ; 191     Value = (uint8_t)(ITC->ISPR6 & Mask); /* Read software priority */
- 534  006e c67f75        	ld	a,32629
- 535  0071 1401          	and	a,(OFST-1,sp)
- 536  0073 6b02          	ld	(OFST+0,sp),a
- 537                     ; 192     break;
- 539  0075 2007          	jra	L502
- 540  0077               L55:
- 541                     ; 194   case ITC_IRQ_EEPROM_EEC:
- 541                     ; 195     Value = (uint8_t)(ITC->ISPR7 & Mask); /* Read software priority */
- 543  0077 c67f76        	ld	a,32630
- 544  007a 1401          	and	a,(OFST-1,sp)
- 545  007c 6b02          	ld	(OFST+0,sp),a
- 546                     ; 196     break;
- 548  007e               L75:
- 549                     ; 198   default:
- 549                     ; 199     break;
- 551  007e               L502:
- 552                     ; 202   Value >>= (uint8_t)(((uint8_t)IrqNum % 4u) * 2u);
- 554  007e 7b03          	ld	a,(OFST+1,sp)
- 555  0080 a403          	and	a,#3
- 556  0082 48            	sll	a
- 557  0083 5f            	clrw	x
- 558  0084 97            	ld	xl,a
- 559  0085 7b02          	ld	a,(OFST+0,sp)
- 560  0087 5d            	tnzw	x
- 561  0088 2704          	jreq	L03
- 562  008a               L23:
- 563  008a 44            	srl	a
- 564  008b 5a            	decw	x
- 565  008c 26fc          	jrne	L23
- 566  008e               L03:
- 567  008e 6b02          	ld	(OFST+0,sp),a
- 568                     ; 204   return((ITC_PriorityLevel_TypeDef)Value);
- 570  0090 7b02          	ld	a,(OFST+0,sp)
- 573  0092 5b03          	addw	sp,#3
- 574  0094 81            	ret
- 640                     	switch	.const
- 641  0032               L66:
- 642  0032 0098          	dc.w	L702
- 643  0034 0098          	dc.w	L702
- 644  0036 0098          	dc.w	L702
- 645  0038 0098          	dc.w	L702
- 646  003a 00aa          	dc.w	L112
- 647  003c 00aa          	dc.w	L112
- 648  003e 00aa          	dc.w	L112
- 649  0040 00aa          	dc.w	L112
- 650  0042 0114          	dc.w	L362
- 651  0044 0114          	dc.w	L362
- 652  0046 00bc          	dc.w	L312
- 653  0048 00bc          	dc.w	L312
- 654  004a 00ce          	dc.w	L512
- 655  004c 00ce          	dc.w	L512
- 656  004e 00ce          	dc.w	L512
- 657  0050 00ce          	dc.w	L512
- 658  0052 00e0          	dc.w	L712
- 659  0054 00e0          	dc.w	L712
- 660  0056 00e0          	dc.w	L712
- 661  0058 00e0          	dc.w	L712
- 662  005a 0114          	dc.w	L362
- 663  005c 0114          	dc.w	L362
- 664  005e 00f2          	dc.w	L122
- 665  0060 00f2          	dc.w	L122
- 666  0062 0104          	dc.w	L322
- 667                     ; 220 void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue)
- 667                     ; 221 {
- 668                     .text:	section	.text,new
- 669  0000               _ITC_SetSoftwarePriority:
- 671  0000 89            	pushw	x
- 672  0001 89            	pushw	x
- 673       00000002      OFST:	set	2
- 676                     ; 222   uint8_t Mask = 0;
- 678  0002 7b01          	ld	a,(OFST-1,sp)
- 679  0004 97            	ld	xl,a
- 680                     ; 223   uint8_t NewPriority = 0;
- 682  0005 7b02          	ld	a,(OFST+0,sp)
- 683  0007 97            	ld	xl,a
- 684                     ; 226   assert_param(IS_ITC_IRQ_OK((uint8_t)IrqNum));
- 686  0008 7b03          	ld	a,(OFST+1,sp)
- 687  000a a119          	cp	a,#25
- 688  000c 2403          	jruge	L63
- 689  000e 4f            	clr	a
- 690  000f 2010          	jra	L04
- 691  0011               L63:
- 692  0011 ae00e2        	ldw	x,#226
- 693  0014 89            	pushw	x
- 694  0015 ae0000        	ldw	x,#0
- 695  0018 89            	pushw	x
- 696  0019 ae0064        	ldw	x,#L102
- 697  001c cd0000        	call	_assert_failed
- 699  001f 5b04          	addw	sp,#4
- 700  0021               L04:
- 701                     ; 227   assert_param(IS_ITC_PRIORITY_OK(PriorityValue));
- 703  0021 7b04          	ld	a,(OFST+2,sp)
- 704  0023 a102          	cp	a,#2
- 705  0025 2710          	jreq	L44
- 706  0027 7b04          	ld	a,(OFST+2,sp)
- 707  0029 a101          	cp	a,#1
- 708  002b 270a          	jreq	L44
- 709  002d 0d04          	tnz	(OFST+2,sp)
- 710  002f 2706          	jreq	L44
- 711  0031 7b04          	ld	a,(OFST+2,sp)
- 712  0033 a103          	cp	a,#3
- 713  0035 2603          	jrne	L24
- 714  0037               L44:
- 715  0037 4f            	clr	a
- 716  0038 2010          	jra	L64
+ 395                     .const:	section	.text
+ 396  0000               L22:
+ 397  0000 0028          	dc.w	L14
+ 398  0002 0028          	dc.w	L14
+ 399  0004 0028          	dc.w	L14
+ 400  0006 0028          	dc.w	L14
+ 401  0008 0031          	dc.w	L34
+ 402  000a 0031          	dc.w	L34
+ 403  000c 0031          	dc.w	L34
+ 404  000e 0031          	dc.w	L34
+ 405  0010 0065          	dc.w	L302
+ 406  0012 0065          	dc.w	L302
+ 407  0014 003a          	dc.w	L54
+ 408  0016 003a          	dc.w	L54
+ 409  0018 0043          	dc.w	L74
+ 410  001a 0043          	dc.w	L74
+ 411  001c 0043          	dc.w	L74
+ 412  001e 0043          	dc.w	L74
+ 413  0020 004c          	dc.w	L15
+ 414  0022 004c          	dc.w	L15
+ 415  0024 004c          	dc.w	L15
+ 416  0026 004c          	dc.w	L15
+ 417  0028 0065          	dc.w	L302
+ 418  002a 0065          	dc.w	L302
+ 419  002c 0055          	dc.w	L35
+ 420  002e 0055          	dc.w	L35
+ 421  0030 005e          	dc.w	L55
+ 422                     ; 107 ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
+ 422                     ; 108 {
+ 423                     .text:	section	.text,new
+ 424  0000               _ITC_GetSoftwarePriority:
+ 426  0000 88            	push	a
+ 427  0001 89            	pushw	x
+ 428       00000002      OFST:	set	2
+ 431                     ; 109   uint8_t Value = 0;
+ 433  0002 0f02          	clr	(OFST+0,sp)
+ 434                     ; 110   uint8_t Mask = 0;
+ 436  0004 7b01          	ld	a,(OFST-1,sp)
+ 437  0006 97            	ld	xl,a
+ 438                     ; 113   assert_param(IS_ITC_IRQ_OK((uint8_t)IrqNum));
+ 440                     ; 116   Mask = (uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U));
+ 442  0007 7b03          	ld	a,(OFST+1,sp)
+ 443  0009 a403          	and	a,#3
+ 444  000b 48            	sll	a
+ 445  000c 5f            	clrw	x
+ 446  000d 97            	ld	xl,a
+ 447  000e a603          	ld	a,#3
+ 448  0010 5d            	tnzw	x
+ 449  0011 2704          	jreq	L41
+ 450  0013               L61:
+ 451  0013 48            	sll	a
+ 452  0014 5a            	decw	x
+ 453  0015 26fc          	jrne	L61
+ 454  0017               L41:
+ 455  0017 6b01          	ld	(OFST-1,sp),a
+ 456                     ; 118   switch (IrqNum)
+ 458  0019 7b03          	ld	a,(OFST+1,sp)
+ 460                     ; 198   default:
+ 460                     ; 199     break;
+ 461  001b a119          	cp	a,#25
+ 462  001d 2407          	jruge	L02
+ 463  001f 5f            	clrw	x
+ 464  0020 97            	ld	xl,a
+ 465  0021 58            	sllw	x
+ 466  0022 de0000        	ldw	x,(L22,x)
+ 467  0025 fc            	jp	(x)
+ 468  0026               L02:
+ 469  0026 203d          	jra	L302
+ 470  0028               L14:
+ 471                     ; 120   case ITC_IRQ_TLI: /* TLI software priority can be read but has no meaning */
+ 471                     ; 121   case ITC_IRQ_AWU:
+ 471                     ; 122   case ITC_IRQ_CLK:
+ 471                     ; 123   case ITC_IRQ_PORTA:
+ 471                     ; 124     Value = (uint8_t)(ITC->ISPR1 & Mask); /* Read software priority */
+ 473  0028 c67f70        	ld	a,32624
+ 474  002b 1401          	and	a,(OFST-1,sp)
+ 475  002d 6b02          	ld	(OFST+0,sp),a
+ 476                     ; 125     break;
+ 478  002f 2034          	jra	L302
+ 479  0031               L34:
+ 480                     ; 127   case ITC_IRQ_PORTB:
+ 480                     ; 128   case ITC_IRQ_PORTC:
+ 480                     ; 129   case ITC_IRQ_PORTD:
+ 480                     ; 130   case ITC_IRQ_PORTE:
+ 480                     ; 131     Value = (uint8_t)(ITC->ISPR2 & Mask); /* Read software priority */
+ 482  0031 c67f71        	ld	a,32625
+ 483  0034 1401          	and	a,(OFST-1,sp)
+ 484  0036 6b02          	ld	(OFST+0,sp),a
+ 485                     ; 132     break;
+ 487  0038 202b          	jra	L302
+ 488  003a               L54:
+ 489                     ; 141   case ITC_IRQ_SPI:
+ 489                     ; 142   case ITC_IRQ_TIM1_OVF:
+ 489                     ; 143     Value = (uint8_t)(ITC->ISPR3 & Mask); /* Read software priority */
+ 491  003a c67f72        	ld	a,32626
+ 492  003d 1401          	and	a,(OFST-1,sp)
+ 493  003f 6b02          	ld	(OFST+0,sp),a
+ 494                     ; 144     break;
+ 496  0041 2022          	jra	L302
+ 497  0043               L74:
+ 498                     ; 146   case ITC_IRQ_TIM1_CAPCOM:
+ 498                     ; 147 #if defined (STM8S903) || defined (STM8AF622x)
+ 498                     ; 148   case ITC_IRQ_TIM5_OVFTRI:
+ 498                     ; 149   case ITC_IRQ_TIM5_CAPCOM:
+ 498                     ; 150 #else
+ 498                     ; 151   case ITC_IRQ_TIM2_OVF:
+ 498                     ; 152   case ITC_IRQ_TIM2_CAPCOM:
+ 498                     ; 153 #endif /* STM8S903 or STM8AF622x*/
+ 498                     ; 154   case ITC_IRQ_TIM3_OVF:
+ 498                     ; 155     Value = (uint8_t)(ITC->ISPR4 & Mask); /* Read software priority */
+ 500  0043 c67f73        	ld	a,32627
+ 501  0046 1401          	and	a,(OFST-1,sp)
+ 502  0048 6b02          	ld	(OFST+0,sp),a
+ 503                     ; 156     break;
+ 505  004a 2019          	jra	L302
+ 506  004c               L15:
+ 507                     ; 158   case ITC_IRQ_TIM3_CAPCOM:
+ 507                     ; 159 #if defined(STM8S208) ||defined(STM8S207) || defined (STM8S007) || defined(STM8S103) || \
+ 507                     ; 160     defined(STM8S003) ||defined(STM8S903) || defined (STM8AF52Ax) || defined (STM8AF62Ax)
+ 507                     ; 161   case ITC_IRQ_UART1_TX:
+ 507                     ; 162   case ITC_IRQ_UART1_RX:
+ 507                     ; 163 #endif /*STM8S208 or STM8S207 or STM8S007 or STM8S103 or STM8S003 or STM8S903 or STM8AF52Ax or STM8AF62Ax */ 
+ 507                     ; 164 #if defined(STM8AF622x)
+ 507                     ; 165   case ITC_IRQ_UART4_TX:
+ 507                     ; 166   case ITC_IRQ_UART4_RX:
+ 507                     ; 167 #endif /*STM8AF622x */
+ 507                     ; 168   case ITC_IRQ_I2C:
+ 507                     ; 169     Value = (uint8_t)(ITC->ISPR5 & Mask); /* Read software priority */
+ 509  004c c67f74        	ld	a,32628
+ 510  004f 1401          	and	a,(OFST-1,sp)
+ 511  0051 6b02          	ld	(OFST+0,sp),a
+ 512                     ; 170     break;
+ 514  0053 2010          	jra	L302
+ 515  0055               L35:
+ 516                     ; 184   case ITC_IRQ_ADC1:
+ 516                     ; 185 #endif /*STM8S105, STM8S005, STM8S103 or STM8S003 or STM8S903 or STM8AF626x or STM8AF622x */
+ 516                     ; 186 #if defined (STM8S903) || defined (STM8AF622x)
+ 516                     ; 187   case ITC_IRQ_TIM6_OVFTRI:
+ 516                     ; 188 #else
+ 516                     ; 189   case ITC_IRQ_TIM4_OVF:
+ 516                     ; 190 #endif /*STM8S903 or STM8AF622x */
+ 516                     ; 191     Value = (uint8_t)(ITC->ISPR6 & Mask); /* Read software priority */
+ 518  0055 c67f75        	ld	a,32629
+ 519  0058 1401          	and	a,(OFST-1,sp)
+ 520  005a 6b02          	ld	(OFST+0,sp),a
+ 521                     ; 192     break;
+ 523  005c 2007          	jra	L302
+ 524  005e               L55:
+ 525                     ; 194   case ITC_IRQ_EEPROM_EEC:
+ 525                     ; 195     Value = (uint8_t)(ITC->ISPR7 & Mask); /* Read software priority */
+ 527  005e c67f76        	ld	a,32630
+ 528  0061 1401          	and	a,(OFST-1,sp)
+ 529  0063 6b02          	ld	(OFST+0,sp),a
+ 530                     ; 196     break;
+ 532  0065               L75:
+ 533                     ; 198   default:
+ 533                     ; 199     break;
+ 535  0065               L302:
+ 536                     ; 202   Value >>= (uint8_t)(((uint8_t)IrqNum % 4u) * 2u);
+ 538  0065 7b03          	ld	a,(OFST+1,sp)
+ 539  0067 a403          	and	a,#3
+ 540  0069 48            	sll	a
+ 541  006a 5f            	clrw	x
+ 542  006b 97            	ld	xl,a
+ 543  006c 7b02          	ld	a,(OFST+0,sp)
+ 544  006e 5d            	tnzw	x
+ 545  006f 2704          	jreq	L42
+ 546  0071               L62:
+ 547  0071 44            	srl	a
+ 548  0072 5a            	decw	x
+ 549  0073 26fc          	jrne	L62
+ 550  0075               L42:
+ 551  0075 6b02          	ld	(OFST+0,sp),a
+ 552                     ; 204   return((ITC_PriorityLevel_TypeDef)Value);
+ 554  0077 7b02          	ld	a,(OFST+0,sp)
+ 557  0079 5b03          	addw	sp,#3
+ 558  007b 81            	ret
+ 622                     	switch	.const
+ 623  0032               L44:
+ 624  0032 003c          	dc.w	L502
+ 625  0034 003c          	dc.w	L502
+ 626  0036 003c          	dc.w	L502
+ 627  0038 003c          	dc.w	L502
+ 628  003a 004e          	dc.w	L702
+ 629  003c 004e          	dc.w	L702
+ 630  003e 004e          	dc.w	L702
+ 631  0040 004e          	dc.w	L702
+ 632  0042 00b8          	dc.w	L162
+ 633  0044 00b8          	dc.w	L162
+ 634  0046 0060          	dc.w	L112
+ 635  0048 0060          	dc.w	L112
+ 636  004a 0072          	dc.w	L312
+ 637  004c 0072          	dc.w	L312
+ 638  004e 0072          	dc.w	L312
+ 639  0050 0072          	dc.w	L312
+ 640  0052 0084          	dc.w	L512
+ 641  0054 0084          	dc.w	L512
+ 642  0056 0084          	dc.w	L512
+ 643  0058 0084          	dc.w	L512
+ 644  005a 00b8          	dc.w	L162
+ 645  005c 00b8          	dc.w	L162
+ 646  005e 0096          	dc.w	L712
+ 647  0060 0096          	dc.w	L712
+ 648  0062 00a8          	dc.w	L122
+ 649                     ; 220 void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue)
+ 649                     ; 221 {
+ 650                     .text:	section	.text,new
+ 651  0000               _ITC_SetSoftwarePriority:
+ 653  0000 89            	pushw	x
+ 654  0001 89            	pushw	x
+ 655       00000002      OFST:	set	2
+ 658                     ; 222   uint8_t Mask = 0;
+ 660  0002 7b01          	ld	a,(OFST-1,sp)
+ 661  0004 97            	ld	xl,a
+ 662                     ; 223   uint8_t NewPriority = 0;
+ 664  0005 7b02          	ld	a,(OFST+0,sp)
+ 665  0007 97            	ld	xl,a
+ 666                     ; 226   assert_param(IS_ITC_IRQ_OK((uint8_t)IrqNum));
+ 668                     ; 227   assert_param(IS_ITC_PRIORITY_OK(PriorityValue));
+ 670                     ; 230   assert_param(IS_ITC_INTERRUPTS_DISABLED);
+ 672                     ; 234   Mask = (uint8_t)(~(uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U)));
+ 674  0008 7b03          	ld	a,(OFST+1,sp)
+ 675  000a a403          	and	a,#3
+ 676  000c 48            	sll	a
+ 677  000d 5f            	clrw	x
+ 678  000e 97            	ld	xl,a
+ 679  000f a603          	ld	a,#3
+ 680  0011 5d            	tnzw	x
+ 681  0012 2704          	jreq	L23
+ 682  0014               L43:
+ 683  0014 48            	sll	a
+ 684  0015 5a            	decw	x
+ 685  0016 26fc          	jrne	L43
+ 686  0018               L23:
+ 687  0018 43            	cpl	a
+ 688  0019 6b01          	ld	(OFST-1,sp),a
+ 689                     ; 237   NewPriority = (uint8_t)((uint8_t)(PriorityValue) << (((uint8_t)IrqNum % 4U) * 2U));
+ 691  001b 7b03          	ld	a,(OFST+1,sp)
+ 692  001d a403          	and	a,#3
+ 693  001f 48            	sll	a
+ 694  0020 5f            	clrw	x
+ 695  0021 97            	ld	xl,a
+ 696  0022 7b04          	ld	a,(OFST+2,sp)
+ 697  0024 5d            	tnzw	x
+ 698  0025 2704          	jreq	L63
+ 699  0027               L04:
+ 700  0027 48            	sll	a
+ 701  0028 5a            	decw	x
+ 702  0029 26fc          	jrne	L04
+ 703  002b               L63:
+ 704  002b 6b02          	ld	(OFST+0,sp),a
+ 705                     ; 239   switch (IrqNum)
+ 707  002d 7b03          	ld	a,(OFST+1,sp)
+ 709                     ; 329   default:
+ 709                     ; 330     break;
+ 710  002f a119          	cp	a,#25
+ 711  0031 2407          	jruge	L24
+ 712  0033 5f            	clrw	x
+ 713  0034 97            	ld	xl,a
+ 714  0035 58            	sllw	x
+ 715  0036 de0032        	ldw	x,(L44,x)
+ 716  0039 fc            	jp	(x)
  717  003a               L24:
- 718  003a ae00e3        	ldw	x,#227
- 719  003d 89            	pushw	x
- 720  003e ae0000        	ldw	x,#0
- 721  0041 89            	pushw	x
- 722  0042 ae0064        	ldw	x,#L102
- 723  0045 cd0000        	call	_assert_failed
- 725  0048 5b04          	addw	sp,#4
- 726  004a               L64:
- 727                     ; 230   assert_param(IS_ITC_INTERRUPTS_DISABLED);
- 729  004a cd0000        	call	_ITC_GetSoftIntStatus
- 731  004d a128          	cp	a,#40
- 732  004f 2603          	jrne	L05
- 733  0051 4f            	clr	a
- 734  0052 2010          	jra	L25
- 735  0054               L05:
- 736  0054 ae00e6        	ldw	x,#230
- 737  0057 89            	pushw	x
- 738  0058 ae0000        	ldw	x,#0
- 739  005b 89            	pushw	x
- 740  005c ae0064        	ldw	x,#L102
- 741  005f cd0000        	call	_assert_failed
- 743  0062 5b04          	addw	sp,#4
- 744  0064               L25:
- 745                     ; 234   Mask = (uint8_t)(~(uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U)));
- 747  0064 7b03          	ld	a,(OFST+1,sp)
- 748  0066 a403          	and	a,#3
- 749  0068 48            	sll	a
- 750  0069 5f            	clrw	x
- 751  006a 97            	ld	xl,a
- 752  006b a603          	ld	a,#3
- 753  006d 5d            	tnzw	x
- 754  006e 2704          	jreq	L45
- 755  0070               L65:
- 756  0070 48            	sll	a
- 757  0071 5a            	decw	x
- 758  0072 26fc          	jrne	L65
- 759  0074               L45:
- 760  0074 43            	cpl	a
- 761  0075 6b01          	ld	(OFST-1,sp),a
- 762                     ; 237   NewPriority = (uint8_t)((uint8_t)(PriorityValue) << (((uint8_t)IrqNum % 4U) * 2U));
- 764  0077 7b03          	ld	a,(OFST+1,sp)
- 765  0079 a403          	and	a,#3
- 766  007b 48            	sll	a
- 767  007c 5f            	clrw	x
- 768  007d 97            	ld	xl,a
- 769  007e 7b04          	ld	a,(OFST+2,sp)
- 770  0080 5d            	tnzw	x
- 771  0081 2704          	jreq	L06
- 772  0083               L26:
- 773  0083 48            	sll	a
- 774  0084 5a            	decw	x
- 775  0085 26fc          	jrne	L26
- 776  0087               L06:
- 777  0087 6b02          	ld	(OFST+0,sp),a
- 778                     ; 239   switch (IrqNum)
- 780  0089 7b03          	ld	a,(OFST+1,sp)
- 782                     ; 329   default:
- 782                     ; 330     break;
- 783  008b a119          	cp	a,#25
- 784  008d 2407          	jruge	L46
- 785  008f 5f            	clrw	x
- 786  0090 97            	ld	xl,a
- 787  0091 58            	sllw	x
- 788  0092 de0032        	ldw	x,(L66,x)
- 789  0095 fc            	jp	(x)
- 790  0096               L46:
- 791  0096 207c          	jra	L362
- 792  0098               L702:
- 793                     ; 241   case ITC_IRQ_TLI: /* TLI software priority can be written but has no meaning */
- 793                     ; 242   case ITC_IRQ_AWU:
- 793                     ; 243   case ITC_IRQ_CLK:
- 793                     ; 244   case ITC_IRQ_PORTA:
- 793                     ; 245     ITC->ISPR1 &= Mask;
- 795  0098 c67f70        	ld	a,32624
- 796  009b 1401          	and	a,(OFST-1,sp)
- 797  009d c77f70        	ld	32624,a
- 798                     ; 246     ITC->ISPR1 |= NewPriority;
- 800  00a0 c67f70        	ld	a,32624
- 801  00a3 1a02          	or	a,(OFST+0,sp)
- 802  00a5 c77f70        	ld	32624,a
- 803                     ; 247     break;
- 805  00a8 206a          	jra	L362
- 806  00aa               L112:
- 807                     ; 249   case ITC_IRQ_PORTB:
- 807                     ; 250   case ITC_IRQ_PORTC:
- 807                     ; 251   case ITC_IRQ_PORTD:
- 807                     ; 252   case ITC_IRQ_PORTE:
- 807                     ; 253     ITC->ISPR2 &= Mask;
- 809  00aa c67f71        	ld	a,32625
- 810  00ad 1401          	and	a,(OFST-1,sp)
- 811  00af c77f71        	ld	32625,a
- 812                     ; 254     ITC->ISPR2 |= NewPriority;
- 814  00b2 c67f71        	ld	a,32625
- 815  00b5 1a02          	or	a,(OFST+0,sp)
- 816  00b7 c77f71        	ld	32625,a
- 817                     ; 255     break;
- 819  00ba 2058          	jra	L362
- 820  00bc               L312:
- 821                     ; 264   case ITC_IRQ_SPI:
- 821                     ; 265   case ITC_IRQ_TIM1_OVF:
- 821                     ; 266     ITC->ISPR3 &= Mask;
- 823  00bc c67f72        	ld	a,32626
- 824  00bf 1401          	and	a,(OFST-1,sp)
- 825  00c1 c77f72        	ld	32626,a
- 826                     ; 267     ITC->ISPR3 |= NewPriority;
- 828  00c4 c67f72        	ld	a,32626
- 829  00c7 1a02          	or	a,(OFST+0,sp)
- 830  00c9 c77f72        	ld	32626,a
- 831                     ; 268     break;
- 833  00cc 2046          	jra	L362
- 834  00ce               L512:
- 835                     ; 270   case ITC_IRQ_TIM1_CAPCOM:
- 835                     ; 271 #if defined(STM8S903) || defined(STM8AF622x) 
- 835                     ; 272   case ITC_IRQ_TIM5_OVFTRI:
- 835                     ; 273   case ITC_IRQ_TIM5_CAPCOM:
- 835                     ; 274 #else
- 835                     ; 275   case ITC_IRQ_TIM2_OVF:
- 835                     ; 276   case ITC_IRQ_TIM2_CAPCOM:
- 835                     ; 277 #endif /*STM8S903 or STM8AF622x */
- 835                     ; 278   case ITC_IRQ_TIM3_OVF:
- 835                     ; 279     ITC->ISPR4 &= Mask;
- 837  00ce c67f73        	ld	a,32627
- 838  00d1 1401          	and	a,(OFST-1,sp)
- 839  00d3 c77f73        	ld	32627,a
- 840                     ; 280     ITC->ISPR4 |= NewPriority;
- 842  00d6 c67f73        	ld	a,32627
- 843  00d9 1a02          	or	a,(OFST+0,sp)
- 844  00db c77f73        	ld	32627,a
- 845                     ; 281     break;
- 847  00de 2034          	jra	L362
- 848  00e0               L712:
- 849                     ; 283   case ITC_IRQ_TIM3_CAPCOM:
- 849                     ; 284 #if defined(STM8S208) ||defined(STM8S207) || defined (STM8S007) || defined(STM8S103) || \
- 849                     ; 285     defined(STM8S003) ||defined(STM8S903) || defined (STM8AF52Ax) || defined (STM8AF62Ax)
- 849                     ; 286   case ITC_IRQ_UART1_TX:
- 849                     ; 287   case ITC_IRQ_UART1_RX:
- 849                     ; 288 #endif /*STM8S208 or STM8S207 or STM8S007 or STM8S103 or STM8S003 or STM8S903 or STM8AF52Ax or STM8AF62Ax */ 
- 849                     ; 289 #if defined(STM8AF622x)
- 849                     ; 290   case ITC_IRQ_UART4_TX:
- 849                     ; 291   case ITC_IRQ_UART4_RX:
- 849                     ; 292 #endif /*STM8AF622x */
- 849                     ; 293   case ITC_IRQ_I2C:
- 849                     ; 294     ITC->ISPR5 &= Mask;
- 851  00e0 c67f74        	ld	a,32628
- 852  00e3 1401          	and	a,(OFST-1,sp)
- 853  00e5 c77f74        	ld	32628,a
- 854                     ; 295     ITC->ISPR5 |= NewPriority;
- 856  00e8 c67f74        	ld	a,32628
- 857  00eb 1a02          	or	a,(OFST+0,sp)
- 858  00ed c77f74        	ld	32628,a
- 859                     ; 296     break;
- 861  00f0 2022          	jra	L362
- 862  00f2               L122:
- 863                     ; 312   case ITC_IRQ_ADC1:
- 863                     ; 313 #endif /*STM8S105, STM8S005, STM8S103 or STM8S003 or STM8S903 or STM8AF626x or STM8AF622x */
- 863                     ; 314     
- 863                     ; 315 #if defined (STM8S903) || defined (STM8AF622x)
- 863                     ; 316   case ITC_IRQ_TIM6_OVFTRI:
- 863                     ; 317 #else
- 863                     ; 318   case ITC_IRQ_TIM4_OVF:
- 863                     ; 319 #endif /* STM8S903 or STM8AF622x */
- 863                     ; 320     ITC->ISPR6 &= Mask;
- 865  00f2 c67f75        	ld	a,32629
- 866  00f5 1401          	and	a,(OFST-1,sp)
- 867  00f7 c77f75        	ld	32629,a
- 868                     ; 321     ITC->ISPR6 |= NewPriority;
- 870  00fa c67f75        	ld	a,32629
- 871  00fd 1a02          	or	a,(OFST+0,sp)
- 872  00ff c77f75        	ld	32629,a
- 873                     ; 322     break;
- 875  0102 2010          	jra	L362
- 876  0104               L322:
- 877                     ; 324   case ITC_IRQ_EEPROM_EEC:
- 877                     ; 325     ITC->ISPR7 &= Mask;
- 879  0104 c67f76        	ld	a,32630
- 880  0107 1401          	and	a,(OFST-1,sp)
- 881  0109 c77f76        	ld	32630,a
- 882                     ; 326     ITC->ISPR7 |= NewPriority;
- 884  010c c67f76        	ld	a,32630
- 885  010f 1a02          	or	a,(OFST+0,sp)
- 886  0111 c77f76        	ld	32630,a
- 887                     ; 327     break;
- 889  0114               L522:
- 890                     ; 329   default:
- 890                     ; 330     break;
- 892  0114               L362:
- 893                     ; 332 }
- 896  0114 5b04          	addw	sp,#4
- 897  0116 81            	ret
- 910                     	xdef	_ITC_GetSoftwarePriority
- 911                     	xdef	_ITC_SetSoftwarePriority
- 912                     	xdef	_ITC_GetSoftIntStatus
- 913                     	xdef	_ITC_DeInit
- 914                     	xdef	_ITC_GetCPUCC
- 915                     	xref	_assert_failed
- 916                     	switch	.const
- 917  0064               L102:
- 918  0064 2e2e5c2e2e5c  	dc.b	"..\..\..\libraries"
- 919  0076 5c73746d3873  	dc.b	"\stm8s_stdperiph_d"
- 920  0088 72697665725c  	dc.b	"river\src\stm8s_it"
- 921  009a 632e6300      	dc.b	"c.c",0
- 941                     	end
+ 718  003a 207c          	jra	L162
+ 719  003c               L502:
+ 720                     ; 241   case ITC_IRQ_TLI: /* TLI software priority can be written but has no meaning */
+ 720                     ; 242   case ITC_IRQ_AWU:
+ 720                     ; 243   case ITC_IRQ_CLK:
+ 720                     ; 244   case ITC_IRQ_PORTA:
+ 720                     ; 245     ITC->ISPR1 &= Mask;
+ 722  003c c67f70        	ld	a,32624
+ 723  003f 1401          	and	a,(OFST-1,sp)
+ 724  0041 c77f70        	ld	32624,a
+ 725                     ; 246     ITC->ISPR1 |= NewPriority;
+ 727  0044 c67f70        	ld	a,32624
+ 728  0047 1a02          	or	a,(OFST+0,sp)
+ 729  0049 c77f70        	ld	32624,a
+ 730                     ; 247     break;
+ 732  004c 206a          	jra	L162
+ 733  004e               L702:
+ 734                     ; 249   case ITC_IRQ_PORTB:
+ 734                     ; 250   case ITC_IRQ_PORTC:
+ 734                     ; 251   case ITC_IRQ_PORTD:
+ 734                     ; 252   case ITC_IRQ_PORTE:
+ 734                     ; 253     ITC->ISPR2 &= Mask;
+ 736  004e c67f71        	ld	a,32625
+ 737  0051 1401          	and	a,(OFST-1,sp)
+ 738  0053 c77f71        	ld	32625,a
+ 739                     ; 254     ITC->ISPR2 |= NewPriority;
+ 741  0056 c67f71        	ld	a,32625
+ 742  0059 1a02          	or	a,(OFST+0,sp)
+ 743  005b c77f71        	ld	32625,a
+ 744                     ; 255     break;
+ 746  005e 2058          	jra	L162
+ 747  0060               L112:
+ 748                     ; 264   case ITC_IRQ_SPI:
+ 748                     ; 265   case ITC_IRQ_TIM1_OVF:
+ 748                     ; 266     ITC->ISPR3 &= Mask;
+ 750  0060 c67f72        	ld	a,32626
+ 751  0063 1401          	and	a,(OFST-1,sp)
+ 752  0065 c77f72        	ld	32626,a
+ 753                     ; 267     ITC->ISPR3 |= NewPriority;
+ 755  0068 c67f72        	ld	a,32626
+ 756  006b 1a02          	or	a,(OFST+0,sp)
+ 757  006d c77f72        	ld	32626,a
+ 758                     ; 268     break;
+ 760  0070 2046          	jra	L162
+ 761  0072               L312:
+ 762                     ; 270   case ITC_IRQ_TIM1_CAPCOM:
+ 762                     ; 271 #if defined(STM8S903) || defined(STM8AF622x) 
+ 762                     ; 272   case ITC_IRQ_TIM5_OVFTRI:
+ 762                     ; 273   case ITC_IRQ_TIM5_CAPCOM:
+ 762                     ; 274 #else
+ 762                     ; 275   case ITC_IRQ_TIM2_OVF:
+ 762                     ; 276   case ITC_IRQ_TIM2_CAPCOM:
+ 762                     ; 277 #endif /*STM8S903 or STM8AF622x */
+ 762                     ; 278   case ITC_IRQ_TIM3_OVF:
+ 762                     ; 279     ITC->ISPR4 &= Mask;
+ 764  0072 c67f73        	ld	a,32627
+ 765  0075 1401          	and	a,(OFST-1,sp)
+ 766  0077 c77f73        	ld	32627,a
+ 767                     ; 280     ITC->ISPR4 |= NewPriority;
+ 769  007a c67f73        	ld	a,32627
+ 770  007d 1a02          	or	a,(OFST+0,sp)
+ 771  007f c77f73        	ld	32627,a
+ 772                     ; 281     break;
+ 774  0082 2034          	jra	L162
+ 775  0084               L512:
+ 776                     ; 283   case ITC_IRQ_TIM3_CAPCOM:
+ 776                     ; 284 #if defined(STM8S208) ||defined(STM8S207) || defined (STM8S007) || defined(STM8S103) || \
+ 776                     ; 285     defined(STM8S003) ||defined(STM8S903) || defined (STM8AF52Ax) || defined (STM8AF62Ax)
+ 776                     ; 286   case ITC_IRQ_UART1_TX:
+ 776                     ; 287   case ITC_IRQ_UART1_RX:
+ 776                     ; 288 #endif /*STM8S208 or STM8S207 or STM8S007 or STM8S103 or STM8S003 or STM8S903 or STM8AF52Ax or STM8AF62Ax */ 
+ 776                     ; 289 #if defined(STM8AF622x)
+ 776                     ; 290   case ITC_IRQ_UART4_TX:
+ 776                     ; 291   case ITC_IRQ_UART4_RX:
+ 776                     ; 292 #endif /*STM8AF622x */
+ 776                     ; 293   case ITC_IRQ_I2C:
+ 776                     ; 294     ITC->ISPR5 &= Mask;
+ 778  0084 c67f74        	ld	a,32628
+ 779  0087 1401          	and	a,(OFST-1,sp)
+ 780  0089 c77f74        	ld	32628,a
+ 781                     ; 295     ITC->ISPR5 |= NewPriority;
+ 783  008c c67f74        	ld	a,32628
+ 784  008f 1a02          	or	a,(OFST+0,sp)
+ 785  0091 c77f74        	ld	32628,a
+ 786                     ; 296     break;
+ 788  0094 2022          	jra	L162
+ 789  0096               L712:
+ 790                     ; 312   case ITC_IRQ_ADC1:
+ 790                     ; 313 #endif /*STM8S105, STM8S005, STM8S103 or STM8S003 or STM8S903 or STM8AF626x or STM8AF622x */
+ 790                     ; 314     
+ 790                     ; 315 #if defined (STM8S903) || defined (STM8AF622x)
+ 790                     ; 316   case ITC_IRQ_TIM6_OVFTRI:
+ 790                     ; 317 #else
+ 790                     ; 318   case ITC_IRQ_TIM4_OVF:
+ 790                     ; 319 #endif /* STM8S903 or STM8AF622x */
+ 790                     ; 320     ITC->ISPR6 &= Mask;
+ 792  0096 c67f75        	ld	a,32629
+ 793  0099 1401          	and	a,(OFST-1,sp)
+ 794  009b c77f75        	ld	32629,a
+ 795                     ; 321     ITC->ISPR6 |= NewPriority;
+ 797  009e c67f75        	ld	a,32629
+ 798  00a1 1a02          	or	a,(OFST+0,sp)
+ 799  00a3 c77f75        	ld	32629,a
+ 800                     ; 322     break;
+ 802  00a6 2010          	jra	L162
+ 803  00a8               L122:
+ 804                     ; 324   case ITC_IRQ_EEPROM_EEC:
+ 804                     ; 325     ITC->ISPR7 &= Mask;
+ 806  00a8 c67f76        	ld	a,32630
+ 807  00ab 1401          	and	a,(OFST-1,sp)
+ 808  00ad c77f76        	ld	32630,a
+ 809                     ; 326     ITC->ISPR7 |= NewPriority;
+ 811  00b0 c67f76        	ld	a,32630
+ 812  00b3 1a02          	or	a,(OFST+0,sp)
+ 813  00b5 c77f76        	ld	32630,a
+ 814                     ; 327     break;
+ 816  00b8               L322:
+ 817                     ; 329   default:
+ 817                     ; 330     break;
+ 819  00b8               L162:
+ 820                     ; 332 }
+ 823  00b8 5b04          	addw	sp,#4
+ 824  00ba 81            	ret
+ 837                     	xdef	_ITC_GetSoftwarePriority
+ 838                     	xdef	_ITC_SetSoftwarePriority
+ 839                     	xdef	_ITC_GetSoftIntStatus
+ 840                     	xdef	_ITC_DeInit
+ 841                     	xdef	_ITC_GetCPUCC
+ 860                     	end

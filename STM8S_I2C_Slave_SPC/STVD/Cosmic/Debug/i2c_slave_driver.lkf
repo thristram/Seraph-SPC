@@ -29,6 +29,7 @@
 # Segment Code,Constants:
 +seg .const -b 0x8080 -m 0x1f80 -n .const -it
 +seg .text -a .const -n .text
++seg .FLASH_CODE -a .text -n .FLASH_CODE
 # Segment Eeprom:
 +seg .eeprom -b 0x4000 -m 0x80 -n .eeprom
 # Segment Zero Page:
@@ -52,19 +53,16 @@ crtsi0.sm8
 #<BEGIN OBJECT_FILES>
 Debug\stm8s_adc1.o
 Debug\stm8s_clk.o
-Debug\stm8s_exti.o
+Debug\stm8s_flash.o
 Debug\stm8s_gpio.o
-Debug\stm8s_i2c.o
 Debug\stm8s_itc.o
-Debug\stm8s_iwdg.o
 Debug\stm8s_tim2.o
 Debug\stm8s_tim4.o
 Debug\stm8s_uart1.o
 Debug\adc.o
-Debug\i2c_slave_interrupt.o
 Debug\main.o
-Debug\stm8s_it.o
 Debug\timer.o
+Debug\uart.o
 #<END OBJECT_FILES>
 
 

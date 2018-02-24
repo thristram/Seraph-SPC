@@ -1,8 +1,11 @@
 /*	BASIC INTERRUPT VECTOR TABLE FOR STM8 devices
  *	Copyright (c) 2007 STMicroelectronics
  */
-#include "I2c_slave_interrupt.h"
+
+#include "uart.h"
 #include "timer.h"
+#include "adc.h"
+
 typedef void @far (*interrupt_handler_t)(void);
 
 struct interrupt_vector {
@@ -40,9 +43,9 @@ struct interrupt_vector const _vectab[] = {
 	{0x82, NonHandledInterrupt}, /* irq14 */
 	{0x82, NonHandledInterrupt}, /* irq15 */
 	{0x82, NonHandledInterrupt}, /* irq16 */
-	{0x82, NonHandledInterrupt}, /* irq17 */
-	{0x82, NonHandledInterrupt}, /* irq18 */
-	{0x82, (interrupt_handler_t) I2C_Slave_check_event}, /* irq19 */
+	{0x82, (interrupt_handler_t)UART1_TX_ISR}, /* irq17 */
+	{0x82, (interrupt_handler_t)UART1_RX_ISR}, /* irq18 */
+	{0x82, NonHandledInterrupt}, /* irq19 */
 	{0x82, NonHandledInterrupt}, /* irq20 */ 
 	{0x82, NonHandledInterrupt}, /* irq21 */  
 	{0x82, NonHandledInterrupt}, /* irq22 */

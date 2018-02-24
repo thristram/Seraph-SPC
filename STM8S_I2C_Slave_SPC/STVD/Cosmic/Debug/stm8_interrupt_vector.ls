@@ -1,10 +1,10 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Generator V4.2.4 - 19 Dec 2007
-  34                     ; 14 @far @interrupt void NonHandledInterrupt(void)
-  34                     ; 15 {
+  34                     ; 17 @far @interrupt void NonHandledInterrupt(void)
+  34                     ; 18 {
   35                     .text:	section	.text,new
   36  0000               f_NonHandledInterrupt:
-  41                     ; 19 }
+  41                     ; 22 }
   44  0000 80            	iret
   46                     .const:	section	.text
   47  0000               __vectab:
@@ -66,14 +66,14 @@
  122  0049 00            	dc.b	page(f_NonHandledInterrupt)
  123  004a 0000          	dc.w	f_NonHandledInterrupt
  124  004c 82            	dc.b	130
- 126  004d 00            	dc.b	page(f_NonHandledInterrupt)
- 127  004e 0000          	dc.w	f_NonHandledInterrupt
+ 126  004d 00            	dc.b	page(_UART1_TX_ISR)
+ 127  004e 0000          	dc.w	_UART1_TX_ISR
  128  0050 82            	dc.b	130
- 130  0051 00            	dc.b	page(f_NonHandledInterrupt)
- 131  0052 0000          	dc.w	f_NonHandledInterrupt
+ 130  0051 00            	dc.b	page(_UART1_RX_ISR)
+ 131  0052 0000          	dc.w	_UART1_RX_ISR
  132  0054 82            	dc.b	130
- 134  0055 00            	dc.b	page(f_I2C_Slave_check_event)
- 135  0056 0000          	dc.w	f_I2C_Slave_check_event
+ 134  0055 00            	dc.b	page(f_NonHandledInterrupt)
+ 135  0056 0000          	dc.w	f_NonHandledInterrupt
  136  0058 82            	dc.b	130
  138  0059 00            	dc.b	page(f_NonHandledInterrupt)
  139  005a 0000          	dc.w	f_NonHandledInterrupt
@@ -109,5 +109,6 @@
  228                     	xdef	f_NonHandledInterrupt
  229                     	xref	f_Timer2_ISR
  230                     	xref	f_TIM4InterruptHandle
- 231                     	xref	f_I2C_Slave_check_event
- 250                     	end
+ 231                     	xref	_UART1_RX_ISR
+ 232                     	xref	_UART1_TX_ISR
+ 251                     	end
